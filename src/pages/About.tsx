@@ -75,27 +75,27 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-20 px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-2xl border border-amber-200/30 rounded-[2rem] p-12 md:p-16 shadow-[0_8px_32px_0_rgba(251,191,36,0.2)]">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-serif font-light tracking-[0.15em] bg-gradient-to-r from-amber-200 via-amber-100 to-white bg-clip-text text-transparent mb-6">
+          <div className="bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-2xl border border-amber-200/30 rounded-2xl sm:rounded-[2rem] p-6 sm:p-12 md:p-16 shadow-[0_8px_32px_0_rgba(251,191,36,0.2)]">
+            <div className="text-center mb-6 sm:mb-12">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl font-serif font-light tracking-[0.15em] bg-gradient-to-r from-amber-200 via-amber-100 to-white bg-clip-text text-transparent mb-4 sm:mb-6">
                 Story About Selena Homes
               </h2>
               <div className="flex items-center justify-center gap-3">
-                <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-amber-200/40"></div>
-                <div className="w-2 h-2 rounded-full bg-amber-200/60"></div>
-                <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-amber-200/40"></div>
+                <div className="h-[1px] w-8 sm:w-12 bg-gradient-to-r from-transparent to-amber-200/40"></div>
+                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-200/60"></div>
+                <div className="h-[1px] w-8 sm:w-12 bg-gradient-to-l from-transparent to-amber-200/40"></div>
               </div>
             </div>
 
             <div className="prose prose-invert prose-lg max-w-none">
-              <p className="text-slate-200 text-lg md:text-xl leading-relaxed mb-8 font-light">
+              <p className="text-slate-200 text-base sm:text-lg md:text-xl leading-relaxed mb-4 sm:mb-8 font-light">
                 At Selena Homes, we don't just sell properties, we build dreams. We are a 
                 Dubai-based real estate brokerage firm distinguished by our extensive expertise and 
                 personalized approach that ensures you achieve your property aspirations.
               </p>
-              <p className="text-slate-300 text-lg leading-relaxed font-light">
+              <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-light">
                 Whether you are looking to buy a new property or sell your existing one, our dedicated 
                 team will be with you every step of the way to guarantee an exceptional 
                 experience and satisfying results.
@@ -105,93 +105,105 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-20 px-4">
         <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif font-light tracking-[0.15em] bg-gradient-to-r from-amber-200 via-amber-100 to-white bg-clip-text text-transparent mb-6">
+          <div className="text-center mb-8 sm:mb-16">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-serif font-light tracking-[0.15em] bg-gradient-to-r from-amber-200 via-amber-100 to-white bg-clip-text text-transparent mb-4 sm:mb-6">
               Our Core Values
             </h2>
             <div className="flex items-center justify-center gap-3">
-              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-amber-200/40"></div>
-              <div className="w-2 h-2 rounded-full bg-amber-200/60"></div>
-              <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-amber-200/40"></div>
+              <div className="h-[1px] w-8 sm:w-12 bg-gradient-to-r from-transparent to-amber-200/40"></div>
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-200/60"></div>
+              <div className="h-[1px] w-8 sm:w-12 bg-gradient-to-l from-transparent to-amber-200/40"></div>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-xl border border-amber-200/20 rounded-[2rem] p-8 shadow-[0_4px_16px_rgba(251,191,36,0.15)] hover:shadow-[0_8px_32px_rgba(251,191,36,0.25)] transition-all duration-300 hover:scale-105">
-              <div className="w-16 h-16 bg-amber-200/20 rounded-2xl flex items-center justify-center mb-6">
-                <Award className="w-8 h-8 text-amber-200" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
+            <div className="bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-xl border border-amber-200/20 rounded-xl sm:rounded-[2rem] p-6 sm:p-8 shadow-[0_4px_16px_rgba(251,191,36,0.15)] hover:shadow-[0_8px_32px_rgba(251,191,36,0.25)] transition-all duration-300 hover:scale-105">
+              <div className="flex items-center gap-4 mb-3 sm:mb-4">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-amber-200/20 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0">
+                  <Award className="w-6 h-6 sm:w-8 sm:h-8 text-amber-200" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-serif font-light text-amber-100 tracking-wide">
+                  Excellence
+                </h3>
               </div>
-              <h3 className="text-2xl font-serif font-light text-amber-100 mb-4 tracking-wide">
-                Excellence
-              </h3>
-              <p className="text-slate-300 font-light leading-relaxed">
+              <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed">
                 We strive for excellence in every transaction, ensuring the highest standards 
                 of service and professionalism.
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-xl border border-amber-200/20 rounded-[2rem] p-8 shadow-[0_4px_16px_rgba(251,191,36,0.15)] hover:shadow-[0_8px_32px_rgba(251,191,36,0.25)] transition-all duration-300 hover:scale-105">
-              <div className="w-16 h-16 bg-amber-200/20 rounded-2xl flex items-center justify-center mb-6">
-                <Shield className="w-8 h-8 text-amber-200" />
+            <div className="bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-xl border border-amber-200/20 rounded-xl sm:rounded-[2rem] p-6 sm:p-8 shadow-[0_4px_16px_rgba(251,191,36,0.15)] hover:shadow-[0_8px_32px_rgba(251,191,36,0.25)] transition-all duration-300 hover:scale-105">
+              <div className="flex items-center gap-4 mb-3 sm:mb-4">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-amber-200/20 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0">
+                  <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-amber-200" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-serif font-light text-amber-100 tracking-wide">
+                  Trust
+                </h3>
               </div>
-              <h3 className="text-2xl font-serif font-light text-amber-100 mb-4 tracking-wide">
-                Trust
-              </h3>
-              <p className="text-slate-300 font-light leading-relaxed">
+              <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed">
                 Building lasting relationships through transparency, integrity, and 
                 unwavering commitment to our clients.
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-xl border border-amber-200/20 rounded-[2rem] p-8 shadow-[0_4px_16px_rgba(251,191,36,0.15)] hover:shadow-[0_8px_32px_rgba(251,191,36,0.25)] transition-all duration-300 hover:scale-105">
-              <div className="w-16 h-16 bg-amber-200/20 rounded-2xl flex items-center justify-center mb-6">
-                <Target className="w-8 h-8 text-amber-200" />
+            <div className="bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-xl border border-amber-200/20 rounded-xl sm:rounded-[2rem] p-6 sm:p-8 shadow-[0_4px_16px_rgba(251,191,36,0.15)] hover:shadow-[0_8px_32px_rgba(251,191,36,0.25)] transition-all duration-300 hover:scale-105">
+              <div className="flex items-center gap-4 mb-3 sm:mb-4">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-amber-200/20 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0">
+                  <Target className="w-6 h-6 sm:w-8 sm:h-8 text-amber-200" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-serif font-light text-amber-100 tracking-wide">
+                  Innovation
+                </h3>
               </div>
-              <h3 className="text-2xl font-serif font-light text-amber-100 mb-4 tracking-wide">
-                Innovation
-              </h3>
-              <p className="text-slate-300 font-light leading-relaxed">
+              <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed">
                 Embracing cutting-edge technology and modern approaches to deliver 
                 exceptional real estate solutions.
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-xl border border-amber-200/20 rounded-[2rem] p-8 shadow-[0_4px_16px_rgba(251,191,36,0.15)] hover:shadow-[0_8px_32px_rgba(251,191,36,0.25)] transition-all duration-300 hover:scale-105">
-              <div className="w-16 h-16 bg-amber-200/20 rounded-2xl flex items-center justify-center mb-6">
-                <Heart className="w-8 h-8 text-amber-200" />
+            <div className="bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-xl border border-amber-200/20 rounded-xl sm:rounded-[2rem] p-6 sm:p-8 shadow-[0_4px_16px_rgba(251,191,36,0.15)] hover:shadow-[0_8px_32px_rgba(251,191,36,0.25)] transition-all duration-300 hover:scale-105">
+              <div className="flex items-center gap-4 mb-3 sm:mb-4">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-amber-200/20 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0">
+                  <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-amber-200" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-serif font-light text-amber-100 tracking-wide">
+                  Client-Focused
+                </h3>
               </div>
-              <h3 className="text-2xl font-serif font-light text-amber-100 mb-4 tracking-wide">
-                Client-Focused
-              </h3>
-              <p className="text-slate-300 font-light leading-relaxed">
+              <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed">
                 Your dreams and aspirations are at the heart of everything we do, 
                 ensuring personalized attention to every detail.
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-xl border border-amber-200/20 rounded-[2rem] p-8 shadow-[0_4px_16px_rgba(251,191,36,0.15)] hover:shadow-[0_8px_32px_rgba(251,191,36,0.25)] transition-all duration-300 hover:scale-105">
-              <div className="w-16 h-16 bg-amber-200/20 rounded-2xl flex items-center justify-center mb-6">
-                <Building2 className="w-8 h-8 text-amber-200" />
+            <div className="bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-xl border border-amber-200/20 rounded-xl sm:rounded-[2rem] p-6 sm:p-8 shadow-[0_4px_16px_rgba(251,191,36,0.15)] hover:shadow-[0_8px_32px_rgba(251,191,36,0.25)] transition-all duration-300 hover:scale-105">
+              <div className="flex items-center gap-4 mb-3 sm:mb-4">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-amber-200/20 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0">
+                  <Building2 className="w-6 h-6 sm:w-8 sm:h-8 text-amber-200" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-serif font-light text-amber-100 tracking-wide">
+                  Expertise
+                </h3>
               </div>
-              <h3 className="text-2xl font-serif font-light text-amber-100 mb-4 tracking-wide">
-                Expertise
-              </h3>
-              <p className="text-slate-300 font-light leading-relaxed">
+              <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed">
                 Years of experience in Dubai's real estate market, providing 
                 invaluable insights and guidance.
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-xl border border-amber-200/20 rounded-[2rem] p-8 shadow-[0_4px_16px_rgba(251,191,36,0.15)] hover:shadow-[0_8px_32px_rgba(251,191,36,0.25)] transition-all duration-300 hover:scale-105">
-              <div className="w-16 h-16 bg-amber-200/20 rounded-2xl flex items-center justify-center mb-6">
-                <Users className="w-8 h-8 text-amber-200" />
+            <div className="bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-xl border border-amber-200/20 rounded-xl sm:rounded-[2rem] p-6 sm:p-8 shadow-[0_4px_16px_rgba(251,191,36,0.15)] hover:shadow-[0_8px_32px_rgba(251,191,36,0.25)] transition-all duration-300 hover:scale-105">
+              <div className="flex items-center gap-4 mb-3 sm:mb-4">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-amber-200/20 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0">
+                  <Users className="w-6 h-6 sm:w-8 sm:h-8 text-amber-200" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-serif font-light text-amber-100 tracking-wide">
+                  Dedication
+                </h3>
               </div>
-              <h3 className="text-2xl font-serif font-light text-amber-100 mb-4 tracking-wide">
-                Dedication
-              </h3>
-              <p className="text-slate-300 font-light leading-relaxed">
+              <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed">
                 Committed to being with you every step of the way, from initial 
                 consultation to closing and beyond.
               </p>
@@ -200,13 +212,13 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-20 px-4">
         <div className="container mx-auto max-w-4xl">
-          <div className="bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-2xl border border-amber-200/30 rounded-[2rem] p-12 md:p-16 shadow-[0_8px_32px_0_rgba(251,191,36,0.2)] text-center">
-            <h2 className="text-3xl md:text-4xl font-serif font-light tracking-[0.15em] bg-gradient-to-r from-amber-200 via-amber-100 to-white bg-clip-text text-transparent mb-6">
+          <div className="bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-2xl border border-amber-200/30 rounded-2xl sm:rounded-[2rem] p-8 sm:p-12 md:p-16 shadow-[0_8px_32px_0_rgba(251,191,36,0.2)] text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-light tracking-[0.15em] bg-gradient-to-r from-amber-200 via-amber-100 to-white bg-clip-text text-transparent mb-4 sm:mb-6">
               Ready to Find Your Dream Property?
             </h2>
-            <p className="text-slate-300 text-lg mb-8 font-light leading-relaxed">
+            <p className="text-slate-300 text-base sm:text-lg mb-6 sm:mb-8 font-light leading-relaxed">
               Let our experienced team guide you through every step of your real estate journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

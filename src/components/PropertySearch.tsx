@@ -138,8 +138,8 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
   return (
     <div className="w-full max-w-6xl mx-auto px-2 sm:px-4">
       <div className="bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-2xl p-4 sm:p-6 rounded-2xl sm:rounded-[2rem] shadow-[0_8px_32px_0_rgba(251,191,36,0.2)] border border-amber-200/30">
-        {/* Search Bar and Filters Row */}
-        <div className="mb-4 sm:mb-6 flex flex-col gap-3 sm:gap-4">
+        {/* Search Input and Buttons Row */}
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4 sm:mb-6">
           <div className="flex-1 relative group">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-amber-200 w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300" />
             <Input
@@ -149,6 +149,7 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
               className="pl-10 sm:pl-12 h-11 sm:h-12 bg-slate-800/60 border-amber-200/30 text-white placeholder:text-slate-400 rounded-xl text-xs sm:text-sm focus:border-amber-200 focus:ring-2 focus:ring-amber-200/30 transition-all duration-300 shadow-inner"
             />
           </div>
+          
           <div className="flex gap-2 sm:gap-3">
             <Button 
               onClick={handleReset}
@@ -166,9 +167,9 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
             </Button>
           </div>
         </div>
-        <div className="flex flex-col gap-2 sm:gap-3">
-          {/* Search Input */}
 
+        {/* Filters */}
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 flex-wrap">
           {/* Status Buttons */}
           <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
             {["All", "Ready", "Off Plan"].map((statusOption) => {
@@ -183,7 +184,7 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
                   key={statusOption}
                   variant="outline"
                   onClick={() => setStatus(statusValue)}
-                  className={`h-10 sm:h-12 px-4 sm:px-6 rounded-xl text-xs sm:text-sm whitespace-nowrap flex-shrink-0 transition-all ${
+                  className={`h-12 sm:h-14 px-6 sm:px-8 rounded-xl text-sm sm:text-base whitespace-nowrap flex-shrink-0 transition-all ${
                     isActive
                       ? "bg-amber-600 border-amber-500 text-white hover:bg-amber-500"
                       : "bg-slate-800/40 border-slate-600/30 text-slate-300 hover:bg-slate-700/60"
@@ -195,20 +196,19 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
             })}
           </div>
 
-          {/* Filters Row */}
           {/* Property Type Dropdown */}
           <Popover open={isPropertyTypeOpen} onOpenChange={setIsPropertyTypeOpen}>
             <PopoverTrigger asChild>
               <Button
                 variant="outline"
-                className="h-10 sm:h-12 px-3 sm:px-4 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-xs sm:text-sm hover:bg-slate-700/60 min-w-[120px] sm:min-w-[140px] justify-between flex-shrink-0"
+                className="h-12 sm:h-14 px-4 sm:px-6 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-sm sm:text-base hover:bg-slate-700/60 min-w-[140px] sm:min-w-[180px] justify-between flex-shrink-0"
               >
                 <span className="truncate">
                   {selectedPropertyTypes.length > 0
                     ? `${selectedPropertyTypes.length} Type${selectedPropertyTypes.length > 1 ? 's' : ''}`
                     : "Type"}
                 </span>
-                <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2 flex-shrink-0" />
+                <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 ml-2 flex-shrink-0" />
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-[calc(100vw-2rem)] sm:w-[600px] p-3 sm:p-4 bg-slate-900/95 backdrop-blur-xl border-amber-200/20"  align="start">
@@ -279,14 +279,14 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
               <PopoverTrigger asChild>
                 <Button
                   variant="outline"
-                  className="h-10 sm:h-12 px-3 sm:px-4 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-xs sm:text-sm hover:bg-slate-700/60 min-w-[140px] sm:min-w-[180px] justify-between flex-shrink-0"
+                  className="h-12 sm:h-14 px-4 sm:px-6 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-sm sm:text-base hover:bg-slate-700/60 min-w-[180px] sm:min-w-[220px] justify-between flex-shrink-0"
                 >
                   <span className="truncate">
                     {completionDateFrom || completionDateTo
                       ? `${completionDateFrom ? format(completionDateFrom, 'MMM yy') : 'Start'} - ${completionDateTo ? format(completionDateTo, 'MMM yy') : 'End'}`
                       : "Completion"}
                   </span>
-                  <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2 flex-shrink-0" />
+                  <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 ml-2 flex-shrink-0" />
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-[calc(100vw-2rem)] sm:w-auto p-0 bg-slate-900/95 backdrop-blur-xl border-amber-200/20" align="start">
@@ -421,14 +421,14 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
               <PopoverTrigger asChild>
                 <Button
                   variant="outline"
-                  className="h-10 sm:h-12 px-3 sm:px-4 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-xs sm:text-sm hover:bg-slate-700/60 min-w-[100px] sm:min-w-[140px] justify-between flex-shrink-0"
+                  className="h-12 sm:h-14 px-4 sm:px-6 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-sm sm:text-base hover:bg-slate-700/60 min-w-[140px] sm:min-w-[180px] justify-between flex-shrink-0"
                 >
                   <span className="truncate">
                     {beds || baths 
                       ? `${beds || ''}${beds && baths ? '/' : ''}${baths || ''}`
                       : "Bed/Bath"}
                   </span>
-                  <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2 flex-shrink-0" />
+                  <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 ml-2 flex-shrink-0" />
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-[calc(100vw-2rem)] sm:w-[400px] p-3 sm:p-4 bg-slate-900/95 backdrop-blur-xl border-amber-200/20" align="start">
@@ -503,14 +503,14 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
             <PopoverTrigger asChild>
               <Button
                 variant="outline"
-                className="h-10 sm:h-12 px-3 sm:px-4 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-xs sm:text-sm hover:bg-slate-700/60 min-w-[100px] sm:min-w-[140px] justify-between flex-shrink-0"
+                className="h-12 sm:h-14 px-4 sm:px-6 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-sm sm:text-base hover:bg-slate-700/60 min-w-[140px] sm:min-w-[180px] justify-between flex-shrink-0"
               >
                 <span className="truncate">
                   {minPrice || maxPrice
                     ? `${minPrice || '0'} - ${maxPrice || '∞'}`
                     : "Price"}
                 </span>
-                <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2 flex-shrink-0" />
+                <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 ml-2 flex-shrink-0" />
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-[calc(100vw-2rem)] sm:w-[350px] p-3 sm:p-4 bg-slate-900/95 backdrop-blur-xl border-amber-200/20" align="start">
@@ -564,9 +564,6 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
               </div>
             </PopoverContent>
           </Popover>
-
-          {/* Search Button */}
-
         </div>
       </div>
     </div>

@@ -62,8 +62,8 @@ const Index = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="left-2 sm:left-4 lg:left-8 h-10 w-10 sm:h-12 sm:w-12 lg:h-16 lg:w-16 bg-slate-900/50 backdrop-blur-xl border border-amber-200/40 text-amber-100 hover:bg-amber-100 hover:text-slate-900 hover:border-amber-200 transition-all duration-300 shadow-[0_4px_16px_rgba(251,191,36,0.2)]" />
-          <CarouselNext className="right-2 sm:right-4 lg:right-8 h-10 w-10 sm:h-12 sm:w-12 lg:h-16 lg:w-16 bg-slate-900/50 backdrop-blur-xl border border-amber-200/40 text-amber-100 hover:bg-amber-100 hover:text-slate-900 hover:border-amber-200 transition-all duration-300 shadow-[0_4px_16px_rgba(251,191,36,0.2)]" />
+          <CarouselPrevious className="hidden sm:flex left-2 sm:left-4 lg:left-8 h-10 w-10 sm:h-12 sm:w-12 lg:h-16 lg:w-16 bg-slate-900/50 backdrop-blur-xl border border-amber-200/40 text-amber-100 hover:bg-amber-100 hover:text-slate-900 hover:border-amber-200 transition-all duration-300 shadow-[0_4px_16px_rgba(251,191,36,0.2)]" />
+          <CarouselNext className="hidden sm:flex right-2 sm:right-4 lg:right-8 h-10 w-10 sm:h-12 sm:w-12 lg:h-16 lg:w-16 bg-slate-900/50 backdrop-blur-xl border border-amber-200/40 text-amber-100 hover:bg-amber-100 hover:text-slate-900 hover:border-amber-200 transition-all duration-300 shadow-[0_4px_16px_rgba(251,191,36,0.2)]" />
         </Carousel>
 
         {/* Glass Morphism Content Overlay */}
@@ -86,7 +86,7 @@ const Index = () => {
                 Real Estate
               </p>
             </div>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-100/90 mb-8 sm:mb-12 lg:mb-14 max-w-3xl mx-auto font-light leading-relaxed tracking-wide px-2">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-100/90 mb-8 sm:mb-12 lg:mb-14 max-w-3xl mx-auto font-light leading-relaxed tracking-wide px-4">
               Discover unparalleled luxury in Dubai's most prestigious addresses
             </p>
             <PropertySearch onSearch={handleSearch} />
