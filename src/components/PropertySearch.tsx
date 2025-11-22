@@ -171,7 +171,7 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
         {/* Filters */}
         <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 flex-wrap">
           {/* Status Buttons */}
-          <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
+          <div className="flex gap-2 w-full sm:w-auto">
             {["All", "Ready", "Off Plan"].map((statusOption) => {
               const statusValue = 
                 statusOption === "All" ? "all" :
@@ -184,7 +184,7 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
                   key={statusOption}
                   variant="outline"
                   onClick={() => setStatus(statusValue)}
-                  className={`h-12 sm:h-14 px-6 sm:px-8 rounded-xl text-sm sm:text-base whitespace-nowrap flex-shrink-0 transition-all ${
+                  className={`h-12 sm:h-14 px-4 sm:px-8 rounded-xl text-sm sm:text-base whitespace-nowrap flex-1 sm:flex-initial transition-all ${
                     isActive
                       ? "bg-amber-600 border-amber-500 text-white hover:bg-amber-500"
                       : "bg-slate-800/40 border-slate-600/30 text-slate-300 hover:bg-slate-700/60"
@@ -201,7 +201,7 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
             <PopoverTrigger asChild>
               <Button
                 variant="outline"
-                className="h-12 sm:h-14 px-4 sm:px-6 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-sm sm:text-base hover:bg-slate-700/60 min-w-[140px] sm:min-w-[180px] justify-between flex-shrink-0"
+                className="h-12 sm:h-14 px-4 sm:px-6 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-sm sm:text-base hover:bg-slate-700/60 w-full sm:w-auto sm:min-w-[180px] justify-between"
               >
                 <span className="truncate">
                   {selectedPropertyTypes.length > 0
@@ -279,7 +279,7 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
               <PopoverTrigger asChild>
                 <Button
                   variant="outline"
-                  className="h-12 sm:h-14 px-4 sm:px-6 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-sm sm:text-base hover:bg-slate-700/60 min-w-[180px] sm:min-w-[220px] justify-between flex-shrink-0"
+                  className="h-12 sm:h-14 px-4 sm:px-6 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-sm sm:text-base hover:bg-slate-700/60 w-full sm:w-auto sm:min-w-[220px] justify-between"
                 >
                   <span className="truncate">
                     {completionDateFrom || completionDateTo
@@ -421,7 +421,7 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
               <PopoverTrigger asChild>
                 <Button
                   variant="outline"
-                  className="h-12 sm:h-14 px-4 sm:px-6 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-sm sm:text-base hover:bg-slate-700/60 min-w-[140px] sm:min-w-[180px] justify-between flex-shrink-0"
+                  className="h-12 sm:h-14 px-4 sm:px-6 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-sm sm:text-base hover:bg-slate-700/60 w-full sm:w-auto sm:min-w-[180px] justify-between"
                 >
                   <span className="truncate">
                     {beds || baths 
@@ -503,7 +503,7 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
             <PopoverTrigger asChild>
               <Button
                 variant="outline"
-                className="h-12 sm:h-14 px-4 sm:px-6 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-sm sm:text-base hover:bg-slate-700/60 min-w-[140px] sm:min-w-[180px] justify-between flex-shrink-0"
+                className="h-12 sm:h-14 px-4 sm:px-6 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-sm sm:text-base hover:bg-slate-700/60 w-full sm:w-auto sm:min-w-[180px] justify-between"
               >
                 <span className="truncate">
                   {minPrice || maxPrice
