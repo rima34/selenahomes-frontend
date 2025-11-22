@@ -142,7 +142,7 @@ const CreatePropertyModal = ({
         name: property.name || '',
         description: property.description || '',
         category: '',
-        propertyTypes: property.propertyTypes || [],
+        propertyTypes: property.propertyTypes?.map(pt => pt.id) || [],
         status: property.status || '',
         price: property.price?.toString() || '',
         size: typeof property.size === 'string' ? property.size : '',

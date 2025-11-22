@@ -260,51 +260,22 @@ const ViewPropertyModal = ({ isOpen, onClose, property }: ViewPropertyModalProps
             </CardContent>
           </Card>
 
-          <div className="grid grid-cols-1 gap-6">
-
+          {typeof property.locationIframe === 'string' && property.locationIframe && (
             <Card className="bg-slate-900/60 backdrop-blur-xl border-amber-200/20">
               <CardHeader className="pb-3">
                 <CardTitle className="text-lg flex items-center gap-2 font-serif font-light tracking-wide text-amber-100">
-                  <HomeIcon className="w-5 h-5" />
-                  More Information
+                  <MapPinIcon className="w-5 h-5" />
+                  Location
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-3">
-                {/* {property.description && (
-                  <div>
-                    <p className="text-sm text-slate-400">Description</p>
-                    <p className="text-slate-300 leading-relaxed">{property.description}</p>
-                  </div>
-                )} */}
-                {/* {property.paymentPlan && (
-                  <div>
-                    <p className="text-sm text-slate-400">Payment Plan</p>
-                    <p className="text-slate-300 leading-relaxed">{property.paymentPlan}</p>
-                  </div>
-                )} */}
-                {typeof property.locationIframe === 'string' && property.locationIframe && (
-                  <div>
-                    <p className="text-sm text-slate-400">Location</p>
-                    <div 
-                      className="w-full h-64 rounded-lg overflow-hidden border border-amber-200/10 mt-2"
-                      dangerouslySetInnerHTML={{ __html: property.locationIframe }}
-                    />
-                  </div>
-                )}
-                {property.locationIframe && typeof property.locationIframe !== 'string' && (
-                  <div>
-                    <p className="text-sm text-red-400">Location (Invalid type)</p>
-                    <pre className="text-xs text-red-300 bg-slate-800 p-2 rounded overflow-auto max-h-32">
-                      {typeof property.locationIframe === 'object' 
-                        ? JSON.stringify(property.locationIframe, null, 2)
-                        : String(property.locationIframe)
-                      }
-                    </pre>
-                  </div>
-                )}
+              <CardContent>
+                <div 
+                  className="w-full h-96 rounded-lg overflow-hidden border border-amber-200/10"
+                  dangerouslySetInnerHTML={{ __html: property.locationIframe }}
+                />
               </CardContent>
             </Card>
-          </div>
+          )}
 
           {propertyTypes.length > 0 && (
             <Card className="bg-slate-900/60 backdrop-blur-xl border-amber-200/20">
@@ -341,7 +312,7 @@ const ViewPropertyModal = ({ isOpen, onClose, property }: ViewPropertyModalProps
             </Card>
           )}
 
-          {/* {typeof property.locationIframe === 'string' && property.locationIframe && (
+          {typeof property.locationIframe === 'string' && property.locationIframe && (
             <Card className="bg-slate-900/60 backdrop-blur-xl border-amber-200/20">
               <CardHeader className="pb-3">
                 <CardTitle className="text-lg flex items-center gap-2 font-serif font-light tracking-wide text-amber-100">
@@ -350,13 +321,13 @@ const ViewPropertyModal = ({ isOpen, onClose, property }: ViewPropertyModalProps
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div 
-                  className="w-full h-64 rounded-lg overflow-hidden border border-amber-200/10"
+                <div
+                  className="w-full h-96 rounded-lg overflow-hidden border border-amber-200/10 [&_iframe]:w-full [&_iframe]:h-full"
                   dangerouslySetInnerHTML={{ __html: property.locationIframe }}
                 />
               </CardContent>
             </Card>
-          )} */}
+          )}
           {/* {property.locationIframe && typeof property.locationIframe !== 'string' && (
             <Card className="bg-slate-900/60 backdrop-blur-xl border-amber-200/20">
               <CardHeader className="pb-3">

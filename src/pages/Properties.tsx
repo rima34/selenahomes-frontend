@@ -312,8 +312,12 @@ const Properties = () => {
                       <TableCell className="font-medium text-slate-200">
                         {formatPrice(property.price)}
                       </TableCell>
-                      <TableCell className="text-slate-300">{property.sizeArea || '-'}</TableCell>
-                      <TableCell className="text-slate-300">{property.handoverBy || '-'}</TableCell>
+                      <TableCell className="text-slate-300">
+                        {typeof property.sizeArea === 'string' ? property.sizeArea : property.sizeArea ? JSON.stringify(property.sizeArea) : '-'}
+                      </TableCell>
+                      <TableCell className="text-slate-300">
+                        {typeof property.handoverBy === 'string' ? property.handoverBy : property.handoverBy ? JSON.stringify(property.handoverBy) : '-'}
+                      </TableCell>
                       <TableCell className="text-slate-300">{formatDate(property.createdAt)}</TableCell>
                       <TableCell className="text-right">
                         <div className="flex items-center gap-2 justify-end">
