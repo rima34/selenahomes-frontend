@@ -70,7 +70,7 @@ const ViewPropertyModal = ({ isOpen, onClose, property }: ViewPropertyModalProps
       />
       
       <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto pt-8 sm:pt-10 px-4 sm:px-6 bg-slate-900/95 backdrop-blur-xl border border-amber-200/20 text-slate-100">
+      <DialogContent className="w-[95vw] sm:w-[90vw] md:w-full max-w-[95vw] sm:max-w-[90vw] md:max-w-3xl lg:max-w-4xl max-h-[90vh] overflow-y-auto overflow-x-hidden pt-8 sm:pt-10 px-3 sm:px-4 md:px-6 bg-slate-900/95 backdrop-blur-xl border border-amber-200/20 text-slate-100">
         <DialogHeader>
           <DialogTitle className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0 text-xl sm:text-2xl font-serif font-light tracking-wide text-amber-100">
             <span className="line-clamp-2 sm:line-clamp-1">{property.name}</span>
@@ -86,7 +86,7 @@ const ViewPropertyModal = ({ isOpen, onClose, property }: ViewPropertyModalProps
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-4 sm:space-y-6">
+        <div className="space-y-4 sm:space-y-6 w-full overflow-x-hidden">
           {property.images && property.images.length > 0 && (
             <div className="space-y-3 sm:space-y-4">
               <h3 className="text-base sm:text-lg font-serif font-light tracking-wide text-amber-100">Images ({property.images.length})</h3>
@@ -118,7 +118,7 @@ const ViewPropertyModal = ({ isOpen, onClose, property }: ViewPropertyModalProps
                 </div>
 
                 {/* Thumbnail strip */}
-                <div className="flex gap-1.5 sm:gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 pb-2">
                   {property.images.map((image, index) => {
                     const imageUrl = getPropertyImageUrl(image);
                     const isSelected = index === selectedImageIndex;
