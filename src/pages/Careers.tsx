@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
-import Navbar from "@/components/Navbar";
+import MobileNav from "@/components/MobileNav";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -80,10 +80,10 @@ const CareersPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
-      <Navbar />
+      <MobileNav />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4">
+      <section className="relative pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 lg:pb-20 px-4">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-12">
             <h1 className="text-5xl md:text-7xl font-serif font-light tracking-[0.15em] mb-4">

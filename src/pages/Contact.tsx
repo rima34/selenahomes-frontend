@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Navbar from "@/components/Navbar";
+import MobileNav from "@/components/MobileNav";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -65,32 +65,32 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
-      <Navbar />
+      <MobileNav />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden">
+      <section className="relative pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 lg:pb-20 px-4 overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute top-20 right-10 w-72 h-72 bg-amber-200/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-amber-200/5 rounded-full blur-3xl"></div>
         
         <div className="container mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-block mb-6">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-amber-200/40"></div>
-                <Mail className="w-8 h-8 text-amber-200" />
-                <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-amber-200/40"></div>
+          <div className="text-center mb-12 sm:mb-16">
+            <div className="inline-block mb-4 sm:mb-6">
+              <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                <div className="h-[1px] w-8 sm:w-12 bg-gradient-to-r from-transparent to-amber-200/40"></div>
+                <Mail className="w-6 h-6 sm:w-8 sm:h-8 text-amber-200" />
+                <div className="h-[1px] w-8 sm:w-12 bg-gradient-to-l from-transparent to-amber-200/40"></div>
               </div>
             </div>
-            <h1 className="text-5xl md:text-7xl font-serif font-light tracking-[0.15em] bg-gradient-to-r from-amber-200 via-amber-100 to-white bg-clip-text text-transparent mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-light tracking-[0.12em] sm:tracking-[0.15em] bg-gradient-to-r from-amber-200 via-amber-100 to-white bg-clip-text text-transparent mb-4 sm:mb-6">
               Get In Touch
             </h1>
-            <p className="text-slate-300 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
+            <p className="text-slate-300 text-base sm:text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed px-4">
               Have questions about our luxury properties? We're here to help you find your dream home in Dubai.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
             {/* Contact Information Cards */}
             <div className="lg:col-span-1 space-y-6">
               {/* Location Card */}

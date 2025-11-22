@@ -60,7 +60,6 @@ const ViewPropertyModal = ({ isOpen, onClose, property }: ViewPropertyModalProps
       day: 'numeric',
     });
   };
-  console.log(propertyTypes)
   return (
     <>
       <ImagePreviewModal
@@ -71,29 +70,29 @@ const ViewPropertyModal = ({ isOpen, onClose, property }: ViewPropertyModalProps
       />
       
       <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto pt-10 bg-slate-900/95 backdrop-blur-xl border border-amber-200/20 text-slate-100">
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto pt-8 sm:pt-10 px-4 sm:px-6 bg-slate-900/95 backdrop-blur-xl border border-amber-200/20 text-slate-100">
         <DialogHeader>
-          <DialogTitle className="flex items-center justify-between text-2xl font-serif font-light tracking-wide text-amber-100">
-            <span>{property.name}</span>
+          <DialogTitle className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0 text-xl sm:text-2xl font-serif font-light tracking-wide text-amber-100">
+            <span className="line-clamp-2 sm:line-clamp-1">{property.name}</span>
             <Badge 
               variant={getStatusBadgeVariant(property.status)}
-              className="bg-amber-200/10 text-amber-100 border-amber-200/20"
+              className="bg-amber-200/10 text-amber-100 border-amber-200/20 w-fit"
             >
               {property.status}
             </Badge>
           </DialogTitle>
-          <DialogDescription className="text-slate-400 font-light">
+          <DialogDescription className="text-slate-400 font-light text-sm">
             Property details and information
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {property.images && property.images.length > 0 && (
-            <div className="space-y-4">
-              <h3 className="text-lg font-serif font-light tracking-wide text-amber-100">Images ({property.images.length})</h3>
+            <div className="space-y-3 sm:space-y-4">
+              <h3 className="text-base sm:text-lg font-serif font-light tracking-wide text-amber-100">Images ({property.images.length})</h3>
               
               {/* Carousel layout: Big image on top, thumbnails below */}
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-3 sm:gap-4">
                 {/* Main selected image */}
                 <div 
                   className="w-full aspect-video bg-slate-800/60 rounded-lg overflow-hidden cursor-pointer hover:ring-2 hover:ring-amber-200/40 transition-all border border-amber-200/10"
@@ -119,14 +118,14 @@ const ViewPropertyModal = ({ isOpen, onClose, property }: ViewPropertyModalProps
                 </div>
 
                 {/* Thumbnail strip */}
-                <div className="flex gap-2 overflow-x-auto pb-2">
+                <div className="flex gap-1.5 sm:gap-2 overflow-x-auto pb-2 scrollbar-hide">
                   {property.images.map((image, index) => {
                     const imageUrl = getPropertyImageUrl(image);
                     const isSelected = index === selectedImageIndex;
                     return (
                       <div
                         key={index}
-                        className={`flex-shrink-0 w-20 h-20 rounded-md overflow-hidden cursor-pointer transition-all border-2 ${
+                        className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-md overflow-hidden cursor-pointer transition-all border-2 ${
                           isSelected 
                             ? 'border-amber-200/60 ring-2 ring-amber-200/40 scale-105' 
                             : 'border-amber-200/10 hover:border-amber-200/30'
@@ -159,50 +158,50 @@ const ViewPropertyModal = ({ isOpen, onClose, property }: ViewPropertyModalProps
           )}
 
           <Card className="bg-slate-900/60 backdrop-blur-xl border-amber-200/20">
-            <CardHeader className="pb-4">
-              <CardTitle className="text-xl flex items-center gap-2 font-serif font-light tracking-wide text-amber-100">
-                <CreditCardIcon className="w-5 h-5" />
+            <CardHeader className="pb-3 sm:pb-4">
+              <CardTitle className="text-lg sm:text-xl flex items-center gap-2 font-serif font-light tracking-wide text-amber-100">
+                <CreditCardIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                 Main Details
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 {/* Left Column */}
-                <div className="space-y-4">
-                  <div className="pb-4 border-b border-amber-200/10">
-                    <p className="text-xs uppercase tracking-wider text-slate-400 mb-2">Property Name</p>
-                    <p className="text-lg font-medium text-slate-100">{property.name}</p>
+                <div className="space-y-3 sm:space-y-4">
+                  <div className="pb-3 sm:pb-4 border-b border-amber-200/10">
+                    <p className="text-[10px] sm:text-xs uppercase tracking-wider text-slate-400 mb-1.5 sm:mb-2">Property Name</p>
+                    <p className="text-base sm:text-lg font-medium text-slate-100">{property.name}</p>
                   </div>
                   
-                  <div className="pb-4 border-b border-amber-200/10">
-                    <p className="text-xs uppercase tracking-wider text-slate-400 mb-2">Status</p>
+                  <div className="pb-3 sm:pb-4 border-b border-amber-200/10">
+                    <p className="text-[10px] sm:text-xs uppercase tracking-wider text-slate-400 mb-1.5 sm:mb-2">Status</p>
                     <Badge 
                       variant={getStatusBadgeVariant(property.status)}
-                      className="bg-amber-200/10 text-amber-100 border-amber-200/20"
+                      className="bg-amber-200/10 text-amber-100 border-amber-200/20 text-xs sm:text-sm"
                     >
                       {property.status}
                     </Badge>
                   </div>
                   
-                  <div className="pb-4 border-b border-amber-200/10">
-                    <p className="text-xs uppercase tracking-wider text-slate-400 mb-2">Price</p>
-                    <p className="text-3xl font-bold text-amber-200">{formatPrice(property.price)}</p>
+                  <div className="pb-3 sm:pb-4 border-b border-amber-200/10">
+                    <p className="text-[10px] sm:text-xs uppercase tracking-wider text-slate-400 mb-1.5 sm:mb-2">Price</p>
+                    <p className="text-2xl sm:text-3xl font-bold text-amber-200">{formatPrice(property.price)}</p>
                   </div>
 
                   {(property.beds !== undefined || property.baths !== undefined) && (
-                    <div className="pb-4 border-b border-amber-200/10">
-                      <p className="text-xs uppercase tracking-wider text-slate-400 mb-3">Rooms</p>
-                      <div className="flex gap-6">
+                    <div className="pb-3 sm:pb-4 border-b border-amber-200/10">
+                      <p className="text-[10px] sm:text-xs uppercase tracking-wider text-slate-400 mb-2 sm:mb-3">Rooms</p>
+                      <div className="flex gap-4 sm:gap-6">
                         {property.beds !== undefined && (
                           <div>
-                            <p className="text-sm text-slate-400 mb-1">Bedrooms</p>
-                            <p className="text-2xl font-semibold text-slate-100">{property.beds}</p>
+                            <p className="text-xs sm:text-sm text-slate-400 mb-1">Bedrooms</p>
+                            <p className="text-xl sm:text-2xl font-semibold text-slate-100">{property.beds}</p>
                           </div>
                         )}
                         {property.baths !== undefined && (
                           <div>
-                            <p className="text-sm text-slate-400 mb-1">Bathrooms</p>
-                            <p className="text-2xl font-semibold text-slate-100">{property.baths}</p>
+                            <p className="text-xs sm:text-sm text-slate-400 mb-1">Bathrooms</p>
+                            <p className="text-xl sm:text-2xl font-semibold text-slate-100">{property.baths}</p>
                           </div>
                         )}
                       </div>
@@ -211,32 +210,32 @@ const ViewPropertyModal = ({ isOpen, onClose, property }: ViewPropertyModalProps
                 </div>
 
                 {/* Right Column */}
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   {property.sizeArea && (
-                    <div className="pb-4 border-b border-amber-200/10">
-                      <p className="text-xs uppercase tracking-wider text-slate-400 mb-2">Size Area</p>
-                      <p className="text-lg font-medium text-slate-100">{typeof property.sizeArea === 'string' ? property.sizeArea : JSON.stringify(property.sizeArea)}</p>
+                    <div className="pb-3 sm:pb-4 border-b border-amber-200/10">
+                      <p className="text-[10px] sm:text-xs uppercase tracking-wider text-slate-400 mb-1.5 sm:mb-2">Size Area</p>
+                      <p className="text-base sm:text-lg font-medium text-slate-100">{typeof property.sizeArea === 'string' ? property.sizeArea : JSON.stringify(property.sizeArea)}</p>
                     </div>
                   )}
                   
                   {property.size && (
-                    <div className="pb-4 border-b border-amber-200/10">
-                      <p className="text-xs uppercase tracking-wider text-slate-400 mb-2">Size</p>
-                      <p className="text-lg font-medium text-slate-100">{typeof property.size === 'string' ? property.size : JSON.stringify(property.size)}</p>
+                    <div className="pb-3 sm:pb-4 border-b border-amber-200/10">
+                      <p className="text-[10px] sm:text-xs uppercase tracking-wider text-slate-400 mb-1.5 sm:mb-2">Size</p>
+                      <p className="text-base sm:text-lg font-medium text-slate-100">{typeof property.size === 'string' ? property.size : JSON.stringify(property.size)}</p>
                     </div>
                   )}
                   
                   {property.handoverBy && (
-                    <div className="pb-4 border-b border-amber-200/10">
-                      <p className="text-xs uppercase tracking-wider text-slate-400 mb-2">Handover By</p>
-                      <p className="text-lg font-medium text-slate-100">{typeof property.handoverBy === 'string' ? property.handoverBy : JSON.stringify(property.handoverBy)}</p>
+                    <div className="pb-3 sm:pb-4 border-b border-amber-200/10">
+                      <p className="text-[10px] sm:text-xs uppercase tracking-wider text-slate-400 mb-1.5 sm:mb-2">Handover By</p>
+                      <p className="text-base sm:text-lg font-medium text-slate-100">{typeof property.handoverBy === 'string' ? property.handoverBy : JSON.stringify(property.handoverBy)}</p>
                     </div>
                   )}
                   
                   {property.completionDate && (
-                    <div className="pb-4 border-b border-amber-200/10">
-                      <p className="text-xs uppercase tracking-wider text-slate-400 mb-2">Completion Date</p>
-                      <p className="text-lg font-medium flex items-center gap-2 text-slate-100">
+                    <div className="pb-3 sm:pb-4 border-b border-amber-200/10">
+                      <p className="text-[10px] sm:text-xs uppercase tracking-wider text-slate-400 mb-1.5 sm:mb-2">Completion Date</p>
+                      <p className="text-base sm:text-lg font-medium flex items-center gap-2 text-slate-100">
                         <CalendarIcon className="w-4 h-4" />
                         {formatDate(property.completionDate)}
                       </p>
@@ -244,11 +243,11 @@ const ViewPropertyModal = ({ isOpen, onClose, property }: ViewPropertyModalProps
                   )}
                   
                   {property.propertyTypes && property.propertyTypes.length > 0 && (
-                    <div className="pb-4">
-                      <p className="text-xs uppercase tracking-wider text-slate-400 mb-3">Property Types</p>
-                      <div className="flex flex-wrap gap-2">
+                    <div className="pb-3 sm:pb-4">
+                      <p className="text-[10px] sm:text-xs uppercase tracking-wider text-slate-400 mb-2 sm:mb-3">Property Types</p>
+                      <div className="flex flex-wrap gap-1.5 sm:gap-2">
                         {property.propertyTypes.map((type) => (
-                          <Badge key={type.id} variant="outline" className="text-sm bg-amber-200/10 text-amber-100 border-amber-200/20 px-3 py-1">
+                          <Badge key={type.id} variant="outline" className="text-xs sm:text-sm bg-amber-200/10 text-amber-100 border-amber-200/20 px-2 sm:px-3 py-0.5 sm:py-1">
                             {type.name}
                           </Badge>
                         ))}
@@ -260,69 +259,69 @@ const ViewPropertyModal = ({ isOpen, onClose, property }: ViewPropertyModalProps
             </CardContent>
           </Card>
 
-          {typeof property.locationIframe === 'string' && property.locationIframe && (
+          {/* {typeof property.locationIframe === 'string' && property.locationIframe && (
             <Card className="bg-slate-900/60 backdrop-blur-xl border-amber-200/20">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-lg flex items-center gap-2 font-serif font-light tracking-wide text-amber-100">
-                  <MapPinIcon className="w-5 h-5" />
+              <CardHeader className="pb-2 sm:pb-3">
+                <CardTitle className="text-base sm:text-lg flex items-center gap-2 font-serif font-light tracking-wide text-amber-100">
+                  <MapPinIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                   Location
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div 
-                  className="w-full h-96 rounded-lg overflow-hidden border border-amber-200/10"
+                  className="w-full h-64 sm:h-80 md:h-96 rounded-lg overflow-hidden border border-amber-200/10"
                   dangerouslySetInnerHTML={{ __html: property.locationIframe }}
                 />
               </CardContent>
             </Card>
-          )}
+          )} */}
 
           {propertyTypes.length > 0 && (
             <Card className="bg-slate-900/60 backdrop-blur-xl border-amber-200/20">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-lg font-serif font-light tracking-wide text-amber-100">Property Types</CardTitle>
+              <CardHeader className="pb-2 sm:pb-3">
+                <CardTitle className="text-base sm:text-lg font-serif font-light tracking-wide text-amber-100">Property Types</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-slate-300 leading-relaxed">{propertyTypes.map((type) => type.name).join(', ')}</p>
+                <p className="text-slate-300 leading-relaxed text-sm sm:text-base">{propertyTypes.map((type) => type.name).join(', ')}</p>
               </CardContent>
             </Card>
           )}
           {property.description && (
             <Card className="bg-slate-900/60 backdrop-blur-xl border-amber-200/20">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-lg font-serif font-light tracking-wide text-amber-100">Description</CardTitle>
+              <CardHeader className="pb-2 sm:pb-3">
+                <CardTitle className="text-base sm:text-lg font-serif font-light tracking-wide text-amber-100">Description</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-slate-300 leading-relaxed">{property.description}</p>
+                <p className="text-slate-300 leading-relaxed text-sm sm:text-base">{property.description}</p>
               </CardContent>
             </Card>
           )}
 
           {property.paymentPlan && (
             <Card className="bg-slate-900/60 backdrop-blur-xl border-amber-200/20">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-lg flex items-center gap-2 font-serif font-light tracking-wide text-amber-100">
-                  <CreditCardIcon className="w-5 h-5" />
+              <CardHeader className="pb-2 sm:pb-3">
+                <CardTitle className="text-base sm:text-lg flex items-center gap-2 font-serif font-light tracking-wide text-amber-100">
+                  <CreditCardIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                   Payment Plan
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-slate-300 leading-relaxed">{property.paymentPlan}</p>
+                <p className="text-slate-300 leading-relaxed text-sm sm:text-base">{property.paymentPlan}</p>
               </CardContent>
             </Card>
           )}
 
           {typeof property.locationIframe === 'string' && property.locationIframe && (
             <Card className="bg-slate-900/60 backdrop-blur-xl border-amber-200/20">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-lg flex items-center gap-2 font-serif font-light tracking-wide text-amber-100">
-                  <MapPinIcon className="w-5 h-5" />
+              <CardHeader className="pb-2 sm:pb-3">
+                <CardTitle className="text-base sm:text-lg flex items-center gap-2 font-serif font-light tracking-wide text-amber-100">
+                  <MapPinIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                   Location
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div
-                  className="w-full h-96 rounded-lg overflow-hidden border border-amber-200/10 [&_iframe]:w-full [&_iframe]:h-full"
+                  className="w-full h-64 sm:h-80 md:h-96 rounded-lg overflow-hidden border border-amber-200/10 [&_iframe]:w-full [&_iframe]:h-full"
                   dangerouslySetInnerHTML={{ __html: property.locationIframe }}
                 />
               </CardContent>

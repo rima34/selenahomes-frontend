@@ -133,4 +133,14 @@ All colors MUST be HSL.
     scrollbar-width: thin;
     scrollbar-color: #fbbf24 #1e293b;
   }
+
+  /* Hide scrollbar utility class */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }

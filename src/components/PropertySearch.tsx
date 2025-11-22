@@ -136,39 +136,41 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
   const propertyTypes = currentCategory?.propertyTypes || [];
 
   return (
-    <div className="w-full max-w-6xl mx-auto">
-      <div className="bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-2xl p-6 rounded-[2rem] shadow-[0_8px_32px_0_rgba(251,191,36,0.2)] border border-amber-200/30">
+    <div className="w-full max-w-6xl mx-auto px-2 sm:px-4">
+      <div className="bg-gradient-to-br from-slate-900/40 via-slate-800/30 to-slate-900/40 backdrop-blur-2xl p-4 sm:p-6 rounded-2xl sm:rounded-[2rem] shadow-[0_8px_32px_0_rgba(251,191,36,0.2)] border border-amber-200/30">
         {/* Search Bar and Filters Row */}
-        <div className="mb-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
+        <div className="mb-4 sm:mb-6 flex flex-col gap-3 sm:gap-4">
           <div className="flex-1 relative group">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-amber-200 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-amber-200 w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300" />
             <Input
-              placeholder="Search here..."
+              placeholder="Search properties..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-12 h-12 bg-slate-800/60 border-amber-200/30 text-white placeholder:text-slate-400 rounded-xl text-sm focus:border-amber-200 focus:ring-2 focus:ring-amber-200/30 transition-all duration-300 shadow-inner"
+              className="pl-10 sm:pl-12 h-11 sm:h-12 bg-slate-800/60 border-amber-200/30 text-white placeholder:text-slate-400 rounded-xl text-xs sm:text-sm focus:border-amber-200 focus:ring-2 focus:ring-amber-200/30 transition-all duration-300 shadow-inner"
             />
           </div>
-          <Button 
-            onClick={handleReset}
-            className="h-12 px-6 bg-slate-800/60 border border-amber-200/30 text-amber-200 rounded-xl font-semibold text-sm hover:bg-slate-900/80 hover:text-white transition-all duration-300"
-            type="button"
-          >
-            Reset
-          </Button>
-          <Button 
-            onClick={handleSearch}
-            className="h-12 px-8 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-white rounded-xl font-semibold text-sm shadow-[0_4px_16px_rgba(251,191,36,0.3)] hover:shadow-[0_6px_24px_rgba(251,191,36,0.4)] transition-all duration-300"
-            type="button"
-          >
-            Search
-          </Button>
+          <div className="flex gap-2 sm:gap-3">
+            <Button 
+              onClick={handleReset}
+              className="flex-1 sm:flex-none h-11 sm:h-12 px-4 sm:px-6 bg-slate-800/60 border border-amber-200/30 text-amber-200 rounded-xl font-semibold text-xs sm:text-sm hover:bg-slate-900/80 hover:text-white transition-all duration-300"
+              type="button"
+            >
+              Reset
+            </Button>
+            <Button 
+              onClick={handleSearch}
+              className="flex-1 sm:flex-none h-11 sm:h-12 px-6 sm:px-8 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-white rounded-xl font-semibold text-xs sm:text-sm shadow-[0_4px_16px_rgba(251,191,36,0.3)] hover:shadow-[0_6px_24px_rgba(251,191,36,0.4)] transition-all duration-300"
+              type="button"
+            >
+              Search
+            </Button>
+          </div>
         </div>
-        <div className="flex flex-col md:flex-row gap-3">
+        <div className="flex flex-col gap-2 sm:gap-3">
           {/* Search Input */}
 
           {/* Status Buttons */}
-          <div className="flex gap-2">
+          <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
             {["All", "Ready", "Off Plan"].map((statusOption) => {
               const statusValue = 
                 statusOption === "All" ? "all" :
@@ -181,7 +183,7 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
                   key={statusOption}
                   variant="outline"
                   onClick={() => setStatus(statusValue)}
-                  className={`h-12 px-6 rounded-xl text-sm transition-all ${
+                  className={`h-10 sm:h-12 px-4 sm:px-6 rounded-xl text-xs sm:text-sm whitespace-nowrap flex-shrink-0 transition-all ${
                     isActive
                       ? "bg-amber-600 border-amber-500 text-white hover:bg-amber-500"
                       : "bg-slate-800/40 border-slate-600/30 text-slate-300 hover:bg-slate-700/60"
@@ -193,30 +195,31 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
             })}
           </div>
 
+          {/* Filters Row */}
           {/* Property Type Dropdown */}
           <Popover open={isPropertyTypeOpen} onOpenChange={setIsPropertyTypeOpen}>
             <PopoverTrigger asChild>
               <Button
                 variant="outline"
-                className="h-12 px-4 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-sm hover:bg-slate-700/60 min-w-[140px] justify-between"
+                className="h-10 sm:h-12 px-3 sm:px-4 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-xs sm:text-sm hover:bg-slate-700/60 min-w-[120px] sm:min-w-[140px] justify-between flex-shrink-0"
               >
-                <span>
+                <span className="truncate">
                   {selectedPropertyTypes.length > 0
                     ? `${selectedPropertyTypes.length} Type${selectedPropertyTypes.length > 1 ? 's' : ''}`
-                    : "Residential"}
+                    : "Type"}
                 </span>
-                <ChevronDown className="w-4 h-4 ml-2" />
+                <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2 flex-shrink-0" />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-[600px] p-4 bg-slate-900/95 backdrop-blur-xl border-amber-200/20">
+            <PopoverContent className="w-[calc(100vw-2rem)] sm:w-[600px] p-3 sm:p-4 bg-slate-900/95 backdrop-blur-xl border-amber-200/20"  align="start">
               {/* Category Tabs */}
-              <Tabs value={selectedCategory} onValueChange={setSelectedCategory} className="mb-4">
-                <TabsList className="bg-transparent border-b border-amber-200/20 rounded-none w-full justify-start h-auto p-0">
+              <Tabs value={selectedCategory} onValueChange={setSelectedCategory} className="mb-3 sm:mb-4">
+                <TabsList className="bg-transparent border-b border-amber-200/20 rounded-none w-full justify-start h-auto p-0 overflow-x-auto flex-nowrap">
                   {categories.map((category) => (
                     <TabsTrigger
                       key={category.id}
                       value={category.name}
-                      className="data-[state=active]:bg-transparent data-[state=active]:text-amber-200 data-[state=active]:border-b-2 data-[state=active]:border-amber-200 text-slate-400 border-b-2 border-transparent rounded-none px-6 py-2 text-sm font-medium transition-all"
+                      className="data-[state=active]:bg-transparent data-[state=active]:text-amber-200 data-[state=active]:border-b-2 data-[state=active]:border-amber-200 text-slate-400 border-b-2 border-transparent rounded-none px-3 sm:px-6 py-2 text-xs sm:text-sm font-medium transition-all whitespace-nowrap flex-shrink-0"
                     >
                       {category.name}
                     </TabsTrigger>
@@ -225,7 +228,7 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
               </Tabs>
 
               {/* Property Types Grid */}
-              <div className="grid grid-cols-3 gap-2 mb-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-3">
                 {Array.isArray(propertyTypes) && propertyTypes.map((type: string | { id: string; name: string }) => {
                   const typeId = typeof type === 'string' ? type : type.id;
                   const typeName = typeof type === 'string' ? type : type.name;
@@ -236,13 +239,13 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
                       key={typeId}
                       variant="outline"
                       onClick={() => handlePropertyTypeToggle(typeId)}
-                      className={`h-10 rounded-full text-xs transition-all ${
+                      className={`h-8 sm:h-10 rounded-full text-[10px] sm:text-xs transition-all ${
                         isSelected
                           ? "bg-amber-200/10 border-amber-200/40 text-amber-100 hover:bg-amber-200/20"
                           : "bg-slate-800/40 border-slate-600/30 text-slate-300 hover:bg-slate-700/60 hover:border-slate-500/40"
                       }`}
                     >
-                      {typeName}
+                      <span className="truncate">{typeName}</span>
                     </Button>
                   );
                 })}
@@ -276,17 +279,17 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
               <PopoverTrigger asChild>
                 <Button
                   variant="outline"
-                  className="h-12 px-4 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-sm hover:bg-slate-700/60 min-w-[180px] justify-between"
+                  className="h-10 sm:h-12 px-3 sm:px-4 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-xs sm:text-sm hover:bg-slate-700/60 min-w-[140px] sm:min-w-[180px] justify-between flex-shrink-0"
                 >
-                  <span>
+                  <span className="truncate">
                     {completionDateFrom || completionDateTo
-                      ? `${completionDateFrom ? format(completionDateFrom, 'MMM yyyy') : 'Start'} - ${completionDateTo ? format(completionDateTo, 'MMM yyyy') : 'End'}`
-                      : "Completion Date"}
+                      ? `${completionDateFrom ? format(completionDateFrom, 'MMM yy') : 'Start'} - ${completionDateTo ? format(completionDateTo, 'MMM yy') : 'End'}`
+                      : "Completion"}
                   </span>
-                  <ChevronDown className="w-4 h-4 ml-2" />
+                  <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2 flex-shrink-0" />
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-auto p-0 bg-slate-900/95 backdrop-blur-xl border-amber-200/20" align="start">
+              <PopoverContent className="w-[calc(100vw-2rem)] sm:w-auto p-0 bg-slate-900/95 backdrop-blur-xl border-amber-200/20" align="start">
                 <div className="p-4">
                   <div className="text-sm font-semibold text-slate-200 mb-3">Completion Date Range</div>
                   <div className="space-y-4">
@@ -418,27 +421,27 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
               <PopoverTrigger asChild>
                 <Button
                   variant="outline"
-                  className="h-12 px-4 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-sm hover:bg-slate-700/60 min-w-[140px] justify-between"
+                  className="h-10 sm:h-12 px-3 sm:px-4 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-xs sm:text-sm hover:bg-slate-700/60 min-w-[100px] sm:min-w-[140px] justify-between flex-shrink-0"
                 >
-                  <span>
+                  <span className="truncate">
                     {beds || baths 
-                      ? `${beds ? beds + ' Bed' : ''}${beds && baths ? ', ' : ''}${baths ? baths + ' Bath' : ''}`
-                      : "Beds & Baths"}
+                      ? `${beds || ''}${beds && baths ? '/' : ''}${baths || ''}`
+                      : "Bed/Bath"}
                   </span>
-                  <ChevronDown className="w-4 h-4 ml-2" />
+                  <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2 flex-shrink-0" />
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-[400px] p-4 bg-slate-900/95 backdrop-blur-xl border-amber-200/20">
+              <PopoverContent className="w-[calc(100vw-2rem)] sm:w-[400px] p-3 sm:p-4 bg-slate-900/95 backdrop-blur-xl border-amber-200/20" align="start">
                 {/* Beds Section */}
-                <div className="mb-4">
-                  <div className="text-sm font-semibold text-slate-200 mb-3">Beds</div>
-                  <div className="grid grid-cols-3 gap-2">
+                <div className="mb-3 sm:mb-4">
+                  <div className="text-xs sm:text-sm font-semibold text-slate-200 mb-2 sm:mb-3">Beds</div>
+                  <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
                     {["Studio", "1", "2", "3", "4", "5", "6", "7", "8+"].map((bed) => (
                       <Button
                         key={bed}
                         variant="outline"
                         onClick={() => setBeds(beds === bed ? "" : bed)}
-                        className={`h-9 rounded-full text-xs transition-all ${
+                        className={`h-8 sm:h-9 rounded-full text-[10px] sm:text-xs transition-all ${
                           beds === bed
                             ? "bg-amber-200/10 border-amber-200/40 text-amber-100"
                             : "bg-slate-800/40 border-slate-600/30 text-slate-300 hover:bg-slate-700/60"
@@ -452,14 +455,14 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
 
                 {/* Baths Section */}
                 <div className="mb-3">
-                  <div className="text-sm font-semibold text-slate-200 mb-3">Baths</div>
-                  <div className="grid grid-cols-3 gap-2">
+                  <div className="text-xs sm:text-sm font-semibold text-slate-200 mb-2 sm:mb-3">Baths</div>
+                  <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
                     {["1", "2", "3", "4", "5", "6+"].map((bath) => (
                       <Button
                         key={bath}
                         variant="outline"
                         onClick={() => setBaths(baths === bath ? "" : bath)}
-                        className={`h-9 rounded-full text-xs transition-all ${
+                        className={`h-8 sm:h-9 rounded-full text-[10px] sm:text-xs transition-all ${
                           baths === bath
                             ? "bg-amber-200/10 border-amber-200/40 text-amber-100"
                             : "bg-slate-800/40 border-slate-600/30 text-slate-300 hover:bg-slate-700/60"
@@ -500,19 +503,19 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
             <PopoverTrigger asChild>
               <Button
                 variant="outline"
-                className="h-12 px-4 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-sm hover:bg-slate-700/60 min-w-[140px] justify-between"
+                className="h-10 sm:h-12 px-3 sm:px-4 bg-slate-800/40 border-slate-600/30 text-slate-300 rounded-xl text-xs sm:text-sm hover:bg-slate-700/60 min-w-[100px] sm:min-w-[140px] justify-between flex-shrink-0"
               >
-                <span>
+                <span className="truncate">
                   {minPrice || maxPrice
-                    ? `${minPrice ? minPrice : '0'} - ${maxPrice ? maxPrice : '∞'}`
-                    : "Price (AED)"}
+                    ? `${minPrice || '0'} - ${maxPrice || '∞'}`
+                    : "Price"}
                 </span>
-                <ChevronDown className="w-4 h-4 ml-2" />
+                <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2 flex-shrink-0" />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-[350px] p-4 bg-slate-900/95 backdrop-blur-xl border-amber-200/20">
+            <PopoverContent className="w-[calc(100vw-2rem)] sm:w-[350px] p-3 sm:p-4 bg-slate-900/95 backdrop-blur-xl border-amber-200/20" align="start">
               <div className="mb-3">
-                <div className="text-sm font-semibold text-slate-200 mb-3">Price Range (AED)</div>
+                <div className="text-xs sm:text-sm font-semibold text-slate-200 mb-2 sm:mb-3">Price Range (AED)</div>
                 <div className="space-y-2">
                   <Input
                     type="number"
@@ -523,7 +526,7 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
                       const val = e.target.value;
                       if (val === '' || /^[0-9]+$/.test(val)) setMinPrice(val);
                     }}
-                    className="h-9 bg-slate-700/60 border-amber-200/20 text-white rounded-lg text-xs"
+                    className="h-8 sm:h-9 bg-slate-700/60 border-amber-200/20 text-white rounded-lg text-xs"
                   />
                   <Input
                     type="number"
@@ -534,7 +537,7 @@ const PropertySearch = ({ onSearch }: PropertySearchProps) => {
                       const val = e.target.value;
                       if (val === '' || /^[0-9]+$/.test(val)) setMaxPrice(val);
                     }}
-                    className="h-9 bg-slate-700/60 border-amber-200/20 text-white rounded-lg text-xs"
+                    className="h-8 sm:h-9 bg-slate-700/60 border-amber-200/20 text-white rounded-lg text-xs"
                   />
                 </div>
               </div>
