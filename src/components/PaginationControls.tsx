@@ -87,16 +87,9 @@ export const PaginationControls: React.FC<PaginationControlsProps> = ({
   const endItem = Math.min(currentPage * itemsPerPage, totalResults);
 
   return (
-    <div className="flex items-center justify-between mt-6">
-      {/* Results info */}
-      {showInfo && (
-        <div className="text-sm text-muted-foreground mx-2">
-          Showing {startItem} to {endItem} of {totalResults} results
-        </div>
-      )}
-
+    <div className="flex flex-col gap-4 mt-6">
       {/* Pagination controls */}
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center justify-center space-x-2">
         {/* Previous button */}
         <Button
           variant="outline"
@@ -150,6 +143,13 @@ export const PaginationControls: React.FC<PaginationControlsProps> = ({
           <ChevronRight className="h-4 w-4" />
         </Button>
       </div>
+
+      {/* Results info */}
+      {showInfo && (
+        <div className="text-sm text-muted-foreground text-center">
+          Showing {startItem} to {endItem} of {totalResults} results
+        </div>
+      )}
     </div>
   );
 };
