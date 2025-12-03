@@ -54,6 +54,9 @@ const Dashboard = () => {
       case 'registrations':
         navigate('/dashboard/registrations');
         break;
+      case 'stats':
+        navigate('/dashboard/stats');
+        break;
       default:
         // Stay on dashboard
         break;

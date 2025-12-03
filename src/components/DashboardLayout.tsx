@@ -10,12 +10,14 @@ const DashboardLayout = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { user, logout } = useAuth();
-  const [activeNav, setActiveNav] = useState("dashboard");
+  const [activeNav, setActiveNav] = useState("stats");
 
   useEffect(() => {
     // Set active nav based on current path
     const path = location.pathname;
-    if (path.includes('/properties')) {
+    if (path.includes('/stats')) {
+      setActiveNav('stats');
+    } else if (path.includes('/properties')) {
       setActiveNav('properties');
     } else if (path.includes('/property-types')) {
       setActiveNav('property-types');
@@ -26,7 +28,7 @@ const DashboardLayout = () => {
     } else if (path.includes('/registrations')) {
       setActiveNav('registrations');
     } else {
-      setActiveNav('properties');
+      setActiveNav('stats');
     }
   }, [location.pathname]);
 
@@ -54,6 +56,9 @@ const DashboardLayout = () => {
         break;
       case 'registrations':
         navigate('/dashboard/registrations');
+        break;
+      case 'stats':
+        navigate('/dashboard/stats');
         break;
       default:
         navigate('/dashboard/properties');

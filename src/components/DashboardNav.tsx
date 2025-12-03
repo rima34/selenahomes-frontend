@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Building2, Home, Settings, Briefcase, FileText, UserPlus } from "lucide-react";
+import { MdDashboard } from "react-icons/md";
 
 interface NavigationItem {
   id: string;
@@ -14,6 +15,11 @@ interface DashboardNavProps {
 
 const DashboardNav = ({ activeNav, onNavClick }: DashboardNavProps) => {
   const navigationItems: NavigationItem[] = [
+    {
+      id: "stats",
+      label: "Dashboard",
+      icon: MdDashboard,
+    },
     {
       id: "properties",
       label: "Properties",
@@ -52,10 +58,10 @@ const DashboardNav = ({ activeNav, onNavClick }: DashboardNavProps) => {
             return (
               <Button
                 key={item.id}
-                variant={isActive ? "default" : "ghost"}
+                variant="ghost"
                 size="sm"
                 onClick={() => onNavClick(item.id)}
-                className={`gap-2 px-4 py-2 rounded-none border-b-2 font-light tracking-wide ${
+                className={`gap-2 px-4 py-2 rounded-t-lg rounded-b-none border-b-2 font-light tracking-wide transition-all cursor-pointer ${
                   isActive 
                     ? "border-amber-200 bg-amber-200/10 text-amber-100 hover:bg-amber-200/20" 
                     : "border-transparent text-slate-300 hover:border-amber-200/50 hover:text-amber-200 hover:bg-slate-800/40"

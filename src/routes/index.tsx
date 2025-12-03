@@ -5,6 +5,7 @@ import ProtectedRoute from "@/components/ProtectedRoute";
 import PublicRoute from "@/components/PublicRoute";
 import DashboardLayout from "@/components/DashboardLayout";
 import PropertyTypes from "@/pages/Property-types";
+import DashboardStatsPage from "@/pages/Dashboard-stats";
 
 // Lazy load components for better performance
 const Index = lazy(() => import("@/pages/Index"));
@@ -14,7 +15,7 @@ const Auth = lazy(() => import("@/pages/Auth"));
 const Careers = lazy(() => import("@/pages/Careers"));
 const DashboardHome = lazy(() => import("@/pages/DashboardHome"));
 const Properties = lazy(() => import("@/pages/Properties"));
-
+const DashboardStats = lazy(() => import("@/pages/Dashboard-stats"));
 const Jobs = lazy(() => import("@/pages/Jobs"));
 const Applications = lazy(() => import("@/pages/Applications"));
 const Registrations = lazy(() => import("@/pages/Registrations"));
@@ -58,6 +59,10 @@ export const routes: RouteObject[] = [
       {
         index: true,
         element: <DashboardHome />,
+      },
+      {
+        path: "stats",
+        element: <DashboardStats />,
       },
       {
         path: "properties",
