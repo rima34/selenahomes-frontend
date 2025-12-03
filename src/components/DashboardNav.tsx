@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Building2, Home, Settings, Briefcase, FileText, UserPlus } from "lucide-react";
+import { Building2, Home, Settings, Briefcase, FileText, UserPlus, Phone } from "lucide-react";
 import { MdDashboard } from "react-icons/md";
 
 interface NavigationItem {
@@ -44,6 +44,11 @@ const DashboardNav = ({ activeNav, onNavClick }: DashboardNavProps) => {
       id: "registrations",
       label: "Registrations",
       icon: UserPlus,
+    },
+    {
+      id: "calls",
+      label: "Calls & Visits",
+      icon: Phone,
     },
   ];
 

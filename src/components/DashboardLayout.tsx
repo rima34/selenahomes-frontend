@@ -27,6 +27,8 @@ const DashboardLayout = () => {
       setActiveNav('applications');
     } else if (path.includes('/registrations')) {
       setActiveNav('registrations');
+    } else if (path.includes('/calls')) {
+      setActiveNav('calls');
     } else {
       setActiveNav('stats');
     }
@@ -56,6 +58,9 @@ const DashboardLayout = () => {
         break;
       case 'registrations':
         navigate('/dashboard/registrations');
+        break;
+      case 'calls':
+        navigate('/dashboard/calls');
         break;
       case 'stats':
         navigate('/dashboard/stats');

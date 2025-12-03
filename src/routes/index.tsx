@@ -19,6 +19,7 @@ const DashboardStats = lazy(() => import("@/pages/Dashboard-stats"));
 const Jobs = lazy(() => import("@/pages/Jobs"));
 const Applications = lazy(() => import("@/pages/Applications"));
 const Registrations = lazy(() => import("@/pages/Registrations"));
+const Calls = lazy(() => import("@/pages/Calls"));
 const NotFound = lazy(() => import("@/pages/NotFound"));
 
 export const routes: RouteObject[] = [
@@ -83,6 +84,10 @@ export const routes: RouteObject[] = [
       {
         path: "registrations",
         element: <Registrations />,
+      },
+      {
+        path: "calls",
+        element: <Calls />,
       },
     ],
   },
