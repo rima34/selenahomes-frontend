@@ -28,6 +28,7 @@ export interface Register {
   phoneNumber: string;
   profileType: ProfileType;
   propertyId?: string | PropertyInfo;
+  availabilityTime?: string;
   createdAt: string;
   updatedAt: string;
 }

@@ -15,10 +15,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { toast } from "sonner";
 import { registerService } from "@/services/registerService";
 import { ProfileType } from "@/types/register";
-import { Loader2 } from "lucide-react";
+import { Loader2, CalendarIcon, Clock } from "lucide-react";
+import { format } from "date-fns";
+import { cn } from "@/lib/utils";
 import countryCodes from "@/types/CountryCodes.json";
 
 interface CountryCode {
@@ -36,12 +40,14 @@ interface RegisterModalProps {
 
 const RegisterModal = ({ isOpen, onClose, propertyName, propertyId }: RegisterModalProps) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [availabilityDate, setAvailabilityDate] = useState<Date | undefined>(undefined);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phonePrefix: "+971",
     phoneNumber: "",
     profileType: "" as ProfileType | "",
+    availabilityTime: "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -57,12 +63,22 @@ const RegisterModal = ({ isOpen, onClose, propertyName, propertyId }: RegisterMo
       // Combine prefix and number, ensuring no extra spaces
       const fullPhoneNumber = `${formData.phonePrefix}${formData.phoneNumber}`;
       
+      // Combine date and time if both are provided
+      let availabilityDateTime: string | undefined;
+      if (availabilityDate && formData.availabilityTime) {
+        const [hours, minutes] = formData.availabilityTime.split(':');
+        const dateTime = new Date(availabilityDate);
+        dateTime.setHours(parseInt(hours), parseInt(minutes));
+        availabilityDateTime = dateTime.toISOString();
+      }
+      
       await registerService.createRegister({
         fullName: formData.fullName,
         email: formData.email,
         phoneNumber: fullPhoneNumber,
         profileType: formData.profileType as ProfileType,
         ...(propertyId && { propertyId }), // Only include if propertyId exists
+        ...(availabilityDateTime && { availabilityTime: availabilityDateTime }),
       });
 
       toast.success("Registration submitted successfully!");
@@ -72,7 +88,9 @@ const RegisterModal = ({ isOpen, onClose, propertyName, propertyId }: RegisterMo
         phonePrefix: "+971",
         phoneNumber: "",
         profileType: "",
+        availabilityTime: "",
       });
+      setAvailabilityDate(undefined);
       onClose();
     } catch (error) {
       const message = error instanceof Error ? error.message : "Failed to submit registration";
@@ -183,6 +201,53 @@ const RegisterModal = ({ isOpen, onClose, propertyName, propertyId }: RegisterMo
           </div>
 
           <div className="space-y-2">
+            <Label htmlFor="availabilityDate" className="text-slate-300">
+              Preferred Availability
+            </Label>
+            <div className="grid grid-cols-2 gap-2">
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className={cn(
+                      "justify-start text-left font-normal bg-slate-800/50 border-amber-200/20 focus:border-amber-200/50 text-white hover:bg-slate-800",
+                      !availabilityDate && "text-slate-400"
+                    )}
+                  >
+                    <CalendarIcon className="mr-2 h-4 w-4" />
+                    {availabilityDate ? format(availabilityDate, "PPP") : "Pick date"}
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0 bg-slate-900 border-amber-200/30">
+                  <Calendar
+                    mode="single"
+                    selected={availabilityDate}
+                    onSelect={setAvailabilityDate}
+                    disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
+                    initialFocus
+                    className="bg-slate-900 text-white"
+                  />
+                </PopoverContent>
+              </Popover>
+              
+              <div className="relative">
+                <Clock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 pointer-events-none" />
+                <Input
+                  id="availabilityTime"
+                  type="time"
+                  value={formData.availabilityTime}
+                  onChange={(e) => handleChange("availabilityTime", e.target.value)}
+                  className="pl-10 bg-slate-800/50 border-amber-200/20 focus:border-amber-200/50 text-white"
+                  placeholder="Select time"
+                />
+              </div>
+            </div>
+            <p className="text-xs text-slate-500">
+              Optional: Choose when you're available for a viewing or callback
+            </p>
+          </div>
+
+          <div className="space-y-2">
             <Label htmlFor="profileType" className="text-slate-300">
               Profile Type *
             </Label>
@@ -198,9 +263,9 @@ const RegisterModal = ({ isOpen, onClose, propertyName, propertyId }: RegisterMo
                 <SelectItem value={ProfileType.FIRST_TIME_BUYER} className="text-white hover:bg-slate-800">
                   First-Time Buyer
                 </SelectItem>
-                <SelectItem value={ProfileType.BROKER_AGENT} className="text-white hover:bg-slate-800">
+                {/* <SelectItem value={ProfileType.BROKER_AGENT} className="text-white hover:bg-slate-800">
                   Broker/Agent
-                </SelectItem>
+                </SelectItem> */}
                 <SelectItem value={ProfileType.INVESTOR} className="text-white hover:bg-slate-800">
                   Investor
                 </SelectItem>

@@ -364,6 +364,14 @@ const Registrations = () => {
                       {new Date(selectedRegister.createdAt).toLocaleString()}
                     </p>
                   </div>
+                  <div>
+                    <Label className="text-slate-400 text-xs">Preferred Availability</Label>
+                    <p className="font-medium text-slate-100">
+                      {selectedRegister.availabilityTime
+                        ? new Date(selectedRegister.availabilityTime).toLocaleString()
+                        : "Not specified"}
+                    </p>
+                  </div>
                 </div>
               </div>
 
