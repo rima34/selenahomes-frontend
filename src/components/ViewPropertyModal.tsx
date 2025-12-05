@@ -184,8 +184,14 @@ const ViewPropertyModal = ({ isOpen, onClose, property }: ViewPropertyModalProps
                   </div>
                   
                   <div className="pb-3 sm:pb-4 border-b border-amber-200/10">
-                    <p className="text-[10px] sm:text-xs uppercase tracking-wider text-slate-400 mb-1.5 sm:mb-2">Price</p>
-                    <p className="text-2xl sm:text-3xl font-bold text-amber-200">{formatPrice(property.price)}</p>
+                    <p className="text-[10px] sm:text-xs uppercase tracking-wider text-slate-400 mb-1.5 sm:mb-2">
+                      {property.status === PropertyStatus.OFF_PLAN && property.priceFrom && property.priceTo ? "Price Range" : "Price"}
+                    </p>
+                    <p className="text-2xl sm:text-3xl font-bold text-amber-200">
+                      {property.status === PropertyStatus.OFF_PLAN && property.priceFrom && property.priceTo
+                        ? `${formatPrice(property.priceFrom)} - ${formatPrice(property.priceTo)}`
+                        : formatPrice(property.price)}
+                    </p>
                   </div>
 
                   {(property.beds !== undefined || property.baths !== undefined) && (
@@ -218,10 +224,16 @@ const ViewPropertyModal = ({ isOpen, onClose, property }: ViewPropertyModalProps
                     </div>
                   )}
                   
-                  {property.size && (
+                  {(property.size || (property.sizeFrom && property.sizeTo)) && (
                     <div className="pb-3 sm:pb-4 border-b border-amber-200/10">
-                      <p className="text-[10px] sm:text-xs uppercase tracking-wider text-slate-400 mb-1.5 sm:mb-2">Size</p>
-                      <p className="text-base sm:text-lg font-medium text-slate-100">{typeof property.size === 'string' ? property.size : JSON.stringify(property.size)}</p>
+                      <p className="text-[10px] sm:text-xs uppercase tracking-wider text-slate-400 mb-1.5 sm:mb-2">
+                        {property.status === PropertyStatus.OFF_PLAN && property.sizeFrom && property.sizeTo ? "Size Range" : "Size"}
+                      </p>
+                      <p className="text-base sm:text-lg font-medium text-slate-100">
+                        {property.status === PropertyStatus.OFF_PLAN && property.sizeFrom && property.sizeTo
+                          ? `${property.sizeFrom} - ${property.sizeTo} sq ft`
+                          : typeof property.size === 'string' ? property.size : JSON.stringify(property.size)}
+                      </p>
                     </div>
                   )}
                   

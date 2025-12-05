@@ -9,10 +9,14 @@ interface PropertyCardProps {
   title: string;
   location: string;
   price: string;
+  priceFrom?: number;
+  priceTo?: number;
   beds?: number;
   baths?: number;
   area?: string;
   size?: string;
+  sizeFrom?: number;
+  sizeTo?: number;
   status?: "Ready" | "Off Plan" | "For Rent";
   onClick?: () => void;
   propertyTypes?: string[];
@@ -28,10 +32,14 @@ const PropertyCard = ({
   image,
   title,
   price,
+  priceFrom,
+  priceTo,
   beds,
   baths,
   area,
   size,
+  sizeFrom,
+  sizeTo,
   status = "Ready",
   onClick,
   propertyTypes,
@@ -92,11 +100,13 @@ const PropertyCard = ({
                 <span className="text-[10px] sm:text-[12px] text-slate-300 font-light">{baths} Bath{baths > 1 ? 's' : ''}</span>
               </div>
             )}
-            {(size || area) && (
+            {(size || area || (sizeFrom && sizeTo)) && (
               <div className="flex flex-col items-center p-1 sm:p-1.5 bg-slate-800/40 rounded-lg col-span-2">
                 <Maximize className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-200 mb-0.5" />
                 <span className="text-[10px] sm:text-[12px] text-slate-300 font-light">
-                  {typeof (size || area) === 'string' ? (size || area) : String(size || area)}
+                  {status === "Off Plan" && sizeFrom && sizeTo
+                    ? `${sizeFrom} - ${sizeTo} sq ft`
+                    : typeof (size || area) === 'string' ? (size || area) : String(size || area)}
                 </span>
               </div>
             )}
@@ -124,9 +134,13 @@ const PropertyCard = ({
           {/* Price and Status */}
           <div className="flex items-baseline justify-between mt-auto">
             <div>
-              <div className="text-[9px] sm:text-[10px] text-slate-400 font-light mb-0.5">Starting from</div>
+              <div className="text-[9px] sm:text-[10px] text-slate-400 font-light mb-0.5">
+                {status === "Off Plan" && priceFrom && priceTo ? "Price Range" : "Starting from"}
+              </div>
               <div className="text-base sm:text-lg font-serif font-light bg-gradient-to-r from-amber-200 to-amber-100 bg-clip-text text-transparent">
-                {price}
+                {status === "Off Plan" && priceFrom && priceTo
+                  ? `${new Intl.NumberFormat('en-AE', { style: 'currency', currency: 'AED', maximumFractionDigits: 0 }).format(priceFrom)} - ${new Intl.NumberFormat('en-AE', { style: 'currency', currency: 'AED', maximumFractionDigits: 0 }).format(priceTo)}`
+                  : price}
               </div>
             </div>
           </div>

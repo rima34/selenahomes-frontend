@@ -13,8 +13,12 @@ export interface Property {
   images?: string[];
   status: PropertyStatus;
   price: number;
+  priceFrom?: number;
+  priceTo?: number;
   sizeArea?: string | Record<string, unknown>; // Can be string or object from API
   size?: string | Record<string, unknown>; // Can be string or object from API
+  sizeFrom?: string;
+  sizeTo?: string;
   locationIframe?: string | Record<string, unknown>; // Can be string or object from API
   handoverBy?: string | Record<string, unknown>; // Can be string or object from API
   paymentPlan?: string;

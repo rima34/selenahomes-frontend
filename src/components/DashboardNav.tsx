@@ -42,7 +42,7 @@ const DashboardNav = ({ activeNav, onNavClick }: DashboardNavProps) => {
     },
     {
       id: "registrations",
-      label: "Registrations",
+      label: "Contact & Client Management",
       icon: UserPlus,
     },
     {

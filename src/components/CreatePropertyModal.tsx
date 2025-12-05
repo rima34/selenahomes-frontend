@@ -32,7 +32,11 @@ interface PropertyFormData {
   propertyTypes: string[];
   status: PropertyStatus | '';
   price: string;
+  priceFrom: string;
+  priceTo: string;
   size: string;
+  sizeFrom: string;
+  sizeTo: string;
   sizeArea: string;
   beds: string;
   baths: string;
@@ -58,7 +62,11 @@ const CreatePropertyModal = ({
     propertyTypes: [],
     status: '',
     price: '',
+    priceFrom: '',
+    priceTo: '',
     size: '',
+    sizeFrom: '',
+    sizeTo: '',
     sizeArea: '',
     beds: '',
     baths: '',
@@ -145,7 +153,11 @@ const CreatePropertyModal = ({
         propertyTypes: property.propertyTypes?.map(pt => pt.id) || [],
         status: property.status || '',
         price: property.price?.toString() || '',
+        priceFrom: property.priceFrom?.toString() || '',
+        priceTo: property.priceTo?.toString() || '',
         size: typeof property.size === 'string' ? property.size : '',
+        sizeFrom: property.sizeFrom || '',
+        sizeTo: property.sizeTo || '',
         sizeArea: typeof property.sizeArea === 'string' ? property.sizeArea : '',
         beds: property.beds?.toString() || '',
         baths: property.baths?.toString() || '',
@@ -164,7 +176,11 @@ const CreatePropertyModal = ({
         propertyTypes: [],
         status: '',
         price: '',
+        priceFrom: '',
+        priceTo: '',
         size: '',
+        sizeFrom: '',
+        sizeTo: '',
         sizeArea: '',
         beds: '',
         baths: '',
@@ -181,9 +197,22 @@ const CreatePropertyModal = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.status || !formData.price) {
+    if (!formData.name || !formData.status) {
       alert('Please fill in all required fields');
       return;
+    }
+
+    // Validate OFF_PLAN specific requirements
+    if (formData.status === PropertyStatus.OFF_PLAN) {
+      if (!formData.priceFrom || !formData.priceTo || !formData.sizeFrom || !formData.sizeTo) {
+        alert('For OFF_PLAN properties, please fill in price range and size range');
+        return;
+      }
+    } else {
+      if (!formData.price) {
+        alert('Please fill in the price');
+        return;
+      }
     }
 
     setLoading(true);
@@ -193,7 +222,21 @@ const CreatePropertyModal = ({
       
       submitData.append('name', formData.name.trim());
       submitData.append('status', formData.status);
-      submitData.append('price', formData.price);
+      
+      // For OFF_PLAN, use priceFrom as the base price, otherwise use the regular price
+      if (formData.status === PropertyStatus.OFF_PLAN) {
+        submitData.append('price', formData.priceFrom);
+      } else {
+        submitData.append('price', formData.price);
+      }
+      
+      if (formData.priceFrom && formData.priceFrom.trim()) {
+        submitData.append('priceFrom', formData.priceFrom);
+      }
+      
+      if (formData.priceTo && formData.priceTo.trim()) {
+        submitData.append('priceTo', formData.priceTo);
+      }
       
       if (formData.description && formData.description.trim()) {
         submitData.append('description', formData.description.trim());
@@ -211,6 +254,14 @@ const CreatePropertyModal = ({
       
       if (formData.size && formData.size.trim()) {
         submitData.append('size', formData.size.trim());
+      }
+      
+      if (formData.sizeFrom && formData.sizeFrom.trim()) {
+        submitData.append('sizeFrom', formData.sizeFrom.trim());
+      }
+      
+      if (formData.sizeTo && formData.sizeTo.trim()) {
+        submitData.append('sizeTo', formData.sizeTo.trim());
       }
       
       if (formData.beds && formData.beds.trim()) {
@@ -253,7 +304,11 @@ const CreatePropertyModal = ({
           propertyTypes: [],
           status: '',
           price: '',
+          priceFrom: '',
+          priceTo: '',
           size: '',
+          sizeFrom: '',
+          sizeTo: '',
           sizeArea: '',
           beds: '',
           baths: '',
@@ -470,31 +525,97 @@ const CreatePropertyModal = ({
               </Select>
             </div>
 
-            <div>
-              <Label htmlFor="price" className="text-slate-300">Price (AED) *</Label>
-              <Input
-                id="price"
-                type="number"
-                value={formData.price}
-                onChange={(e) => handleInputChange('price', e.target.value)}
-                placeholder="Enter price"
-                min="0"
-                required
-                className="bg-slate-800/60 border-amber-200/20 text-slate-100 placeholder:text-slate-500 focus:border-amber-200/40 focus:ring-amber-200/20"
-              />
-            </div>
+            {formData.status !== PropertyStatus.OFF_PLAN && (
+              <div>
+                <Label htmlFor="price" className="text-slate-300">Price (AED) *</Label>
+                <Input
+                  id="price"
+                  type="number"
+                  value={formData.price}
+                  onChange={(e) => handleInputChange('price', e.target.value)}
+                  placeholder="Enter price"
+                  min="0"
+                  required
+                  className="bg-slate-800/60 border-amber-200/20 text-slate-100 placeholder:text-slate-500 focus:border-amber-200/40 focus:ring-amber-200/20"
+                />
+              </div>
+            )}
 
-            <div>
-              <Label htmlFor="size" className="text-slate-300">Size</Label>
-              <Input
-                id="size"
-                type="text"
-                value={formData.size}
-                onChange={(e) => handleInputChange('size', e.target.value)}
-                placeholder="e.g., 2500 sq ft"
-                className="bg-slate-800/60 border-amber-200/20 text-slate-100 placeholder:text-slate-500 focus:border-amber-200/40 focus:ring-amber-200/20"
-              />
-            </div>
+            {formData.status === PropertyStatus.OFF_PLAN && (
+              <>
+                <div>
+                  <Label htmlFor="priceFrom" className="text-slate-300">Price From (AED) *</Label>
+                  <Input
+                    id="priceFrom"
+                    type="number"
+                    value={formData.priceFrom}
+                    onChange={(e) => handleInputChange('priceFrom', e.target.value)}
+                    placeholder="Enter starting price"
+                    min="0"
+                    required
+                    className="bg-slate-800/60 border-amber-200/20 text-slate-100 placeholder:text-slate-500 focus:border-amber-200/40 focus:ring-amber-200/20"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="priceTo" className="text-slate-300">Price To (AED) *</Label>
+                  <Input
+                    id="priceTo"
+                    type="number"
+                    value={formData.priceTo}
+                    onChange={(e) => handleInputChange('priceTo', e.target.value)}
+                    placeholder="Enter ending price"
+                    min="0"
+                    required
+                    className="bg-slate-800/60 border-amber-200/20 text-slate-100 placeholder:text-slate-500 focus:border-amber-200/40 focus:ring-amber-200/20"
+                  />
+                </div>
+              </>
+            )}
+
+            {formData.status !== PropertyStatus.OFF_PLAN && (
+              <div>
+                <Label htmlFor="size" className="text-slate-300">Size</Label>
+                <Input
+                  id="size"
+                  type="text"
+                  value={formData.size}
+                  onChange={(e) => handleInputChange('size', e.target.value)}
+                  placeholder="e.g., 2500 sq ft"
+                  className="bg-slate-800/60 border-amber-200/20 text-slate-100 placeholder:text-slate-500 focus:border-amber-200/40 focus:ring-amber-200/20"
+                />
+              </div>
+            )}
+
+            {formData.status === PropertyStatus.OFF_PLAN && (
+              <>
+                <div>
+                  <Label htmlFor="sizeFrom" className="text-slate-300">Size From *</Label>
+                  <Input
+                    id="sizeFrom"
+                    type="text"
+                    value={formData.sizeFrom}
+                    onChange={(e) => handleInputChange('sizeFrom', e.target.value)}
+                    placeholder="e.g., 1800 sq ft"
+                    required
+                    className="bg-slate-800/60 border-amber-200/20 text-slate-100 placeholder:text-slate-500 focus:border-amber-200/40 focus:ring-amber-200/20"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="sizeTo" className="text-slate-300">Size To *</Label>
+                  <Input
+                    id="sizeTo"
+                    type="text"
+                    value={formData.sizeTo}
+                    onChange={(e) => handleInputChange('sizeTo', e.target.value)}
+                    placeholder="e.g., 3500 sq ft"
+                    required
+                    className="bg-slate-800/60 border-amber-200/20 text-slate-100 placeholder:text-slate-500 focus:border-amber-200/40 focus:ring-amber-200/20"
+                  />
+                </div>
+              </>
+            )}
 
             {/* Conditional fields based on category */}
             {selectedCategoryName.toLowerCase() === 'commercial' ? (
