@@ -59,7 +59,7 @@ export const routes: RouteObject[] = [
     children: [
       {
         index: true,
-        element: <DashboardHome />,
+        element: <DashboardStats />,
       },
       {
         path: "stats",

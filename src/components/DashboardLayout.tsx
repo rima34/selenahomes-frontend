@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Outlet, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { LogOut } from "lucide-react";
+import { LogOut, Kanban } from "lucide-react";
 import { toast } from "sonner";
 import { useAuth } from "@/hooks/useAuthContext";
 import DashboardNav from "@/components/DashboardNav";
@@ -81,6 +81,15 @@ const DashboardLayout = () => {
               <span className="text-white font-extralight"> HOMES</span>
             </div>
             <div className="flex items-center gap-4">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => window.open("https://kanban-board.selena-homes.com/", "_blank")}
+                className="gap-2 bg-gradient-to-r from-amber-600 to-amber-500 backdrop-blur-sm border border-amber-400/30 text-white hover:from-amber-500 hover:to-amber-400 hover:border-amber-300/50 transition-all duration-2000 animate-pulse hover:animate-none shadow-lg hover:shadow-amber-500/50"
+              >
+                <Kanban className="w-4 h-4" />
+                Kanban Board
+              </Button>
               <span className="text-sm text-slate-300 font-light">
                 {user?.email || "user@example.com"}
               </span>
