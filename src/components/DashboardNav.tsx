@@ -42,12 +42,12 @@ const DashboardNav = ({ activeNav, onNavClick }: DashboardNavProps) => {
     },
     {
       id: "registrations",
-      label: "Contact & Client Management",
+      label: "Contact & Lead Management",
       icon: UserPlus,
     },
     {
       id: "calls",
-      label: "Calls & Visits",
+      label: "Calls & Visits Management",
       icon: Phone,
     },
   ];
