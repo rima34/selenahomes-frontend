@@ -131,16 +131,16 @@ const Index = () => {
             </div>
             <div className="mb-5 sm:mb-6 px-4">
               <p className="text-slate-400 mb-2 font-light text-sm sm:text-base">
-                Office 905 - Le Solarium Tower, Dubai Silicon Oasis
+                Marhaba Auctions Building, First Floor, Marrakech St, Umm Al Ramoul
               </p>
               <p className="text-slate-400 mb-2 font-light text-sm sm:text-base">
-                <a href="mailto:info@selenahomes.com" className="hover:text-amber-200 transition-colors break-all">
-                  info@selenahomes.com
+                <a href="mailto:info@selenahomes.ae" className="hover:text-amber-200 transition-colors break-all">
+                  info@selenahomes.ae
                 </a>
               </p>
               <p className="text-slate-400 font-light text-sm sm:text-base">
-                <a href="tel:00971585494002" className="hover:text-amber-200 transition-colors">
-                  +971-58-549-4002
+                <a href="tel:00971586688908" className="hover:text-amber-200 transition-colors">
+                  +971-58-668-8908
                 </a>
               </p>
             </div>
