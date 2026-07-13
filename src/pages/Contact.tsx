@@ -120,10 +120,10 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent>
                   <a 
-                    href="tel:00971585494002" 
+                    href="tel:00971586688908" 
                     className="text-slate-300 font-light hover:text-amber-200 transition-colors duration-300 text-lg"
                   >
-                    +971-58-549-4002
+                    +971-58-668-8908
                   </a>
                 </CardContent>
               </Card>
@@ -376,8 +376,8 @@ const Contact = () => {
                 </a>
               </p>
               <p className="text-slate-400 font-light">
-                <a href="tel:00971585494002" className="hover:text-amber-200 transition-colors">
-                  +971-58-549-4002
+                <a href="tel:00971586688908" className="hover:text-amber-200 transition-colors">
+                  +971-58-668-8908
                 </a>
               </p>
             </div>
