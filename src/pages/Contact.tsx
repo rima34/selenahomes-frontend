@@ -138,10 +138,10 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent>
                   <a 
-                    href="mailto:info@selenahomes.com" 
+                    href="mailto:info@selenahomes.ae" 
                     className="text-slate-300 font-light hover:text-amber-200 transition-colors duration-300"
                   >
-                    info@selenahomes.com
+                    info@selenahomes.ae
                   </a>
                 </CardContent>
               </Card>
@@ -157,7 +157,7 @@ const Contact = () => {
                 <CardContent>
                   <div className="flex flex-wrap gap-3">
                     <a
-                      href="https://www.linkedin.com/company/selena-homes"
+                      href="https://x.com/serina_achouri https://www.linkedin.com/in/serineachouri/ https://www.instagram.com/selena.homesdxb/ https://www.tiktok.com/@selena.homes5 https://www.youtube.com/@SelenaHomes-b7e@SelenaHomes-b7e"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-10 h-10 bg-slate-800/60 backdrop-blur-sm border border-amber-200/20 rounded-lg flex items-center justify-center hover:bg-amber-200/10 hover:border-amber-200/40 transition-all duration-300 hover:scale-110"
@@ -189,7 +189,7 @@ const Contact = () => {
                       <Facebook className="w-5 h-5 text-amber-200" />
                     </a>
                     <a
-                      href="https://www.tiktok.com/@selenahomess"
+                      href="https://www.tiktok.com/@selena.homes5"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-10 h-10 bg-slate-800/60 backdrop-blur-sm border border-amber-200/20 rounded-lg flex items-center justify-center hover:bg-amber-200/10 hover:border-amber-200/40 transition-all duration-300 hover:scale-110"
@@ -197,7 +197,7 @@ const Contact = () => {
                       <FaTiktok className="w-5 h-5 text-amber-200" />
                     </a>
                     <a
-                      href="https://www.youtube.com/"
+                      href="https://www.youtube.com/@SelenaHomes-b7e"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-10 h-10 bg-slate-800/60 backdrop-blur-sm border border-amber-200/20 rounded-lg flex items-center justify-center hover:bg-amber-200/10 hover:border-amber-200/40 transition-all duration-300 hover:scale-110"
@@ -368,11 +368,11 @@ const Contact = () => {
             </div>
             <div className="mb-6">
               <p className="text-slate-400 mb-2 font-light">
-                Office 905 - Le Solarium Tower, Dubai Silicon Oasis
+                MArhaba Auctions Building, First Floor, Marrakech St, Umm Al Ramoul
               </p>
               <p className="text-slate-400 mb-2 font-light">
-                <a href="mailto:info@selenahomes.com" className="hover:text-amber-200 transition-colors">
-                  info@selenahomes.com
+                <a href="mailto:info@selenahomes.ae" className="hover:text-amber-200 transition-colors">
+                  info@selenahomes.ae
                 </a>
               </p>
               <p className="text-slate-400 font-light">
@@ -391,7 +391,7 @@ const Contact = () => {
               </div>
               <div className="flex justify-center items-center gap-4">
                 <a
-                  href="https://www.linkedin.com/company/selena-homes"
+                  href="https://x.com/serina_achouri https://www.linkedin.com/in/serineachouri/ https://www.instagram.com/selena.homesdxb/ https://www.tiktok.com/@selena.homes5 https://www.youtube.com/@SelenaHomes-b7e@SelenaHomes-b7e"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative w-12 h-12 bg-slate-800/60 backdrop-blur-sm border border-amber-200/20 rounded-xl flex items-center justify-center hover:bg-amber-200/10 hover:border-amber-200/40 transition-all duration-300 hover:scale-110 shadow-[0_2px_8px_rgba(251,191,36,0.1)] hover:shadow-[0_4px_16px_rgba(251,191,36,0.2)]"
@@ -423,7 +423,7 @@ const Contact = () => {
                   <Facebook className="w-5 h-5 text-amber-200 group-hover:text-amber-100 transition-colors" />
                 </a>
                 <a
-                  href="https://www.tiktok.com/@selenahomess"
+                  href="https://www.tiktok.com/@selena.homes5"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative w-12 h-12 bg-slate-800/60 backdrop-blur-sm border border-amber-200/20 rounded-xl flex items-center justify-center hover:bg-amber-200/10 hover:border-amber-200/40 transition-all duration-300 hover:scale-110 shadow-[0_2px_8px_rgba(251,191,36,0.1)] hover:shadow-[0_4px_16px_rgba(251,191,36,0.2)]"
@@ -431,7 +431,7 @@ const Contact = () => {
                   <FaTiktok className="w-5 h-5 text-amber-200 group-hover:text-amber-100 transition-colors" />
                 </a>
                 <a
-                  href="https://www.youtube.com/"
+                  href="https://www.youtube.com/@SelenaHomes-b7e"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative w-12 h-12 bg-slate-800/60 backdrop-blur-sm border border-amber-200/20 rounded-xl flex items-center justify-center hover:bg-amber-200/10 hover:border-amber-200/40 transition-all duration-300 hover:scale-110 shadow-[0_2px_8px_rgba(251,191,36,0.1)] hover:shadow-[0_4px_16px_rgba(251,191,36,0.2)]"
