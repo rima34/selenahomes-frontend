@@ -24,18 +24,22 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("http://localhost:3000/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phoneNumber: formData.phone,
-          message: formData.message,
-        }),
-      });
+      const response = await fetch(
+  `${import.meta.env.VITE_API_BASE_URL}/contact`,
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name: formData.name,
+      email: formData.email,
+      phoneNumber: formData.phone,
+      subject: formData.subject,
+      message: formData.message,
+    }),
+  }
+);
 
       if (!response.ok) {
         throw new Error("Failed to send message");
