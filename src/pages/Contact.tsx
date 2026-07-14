@@ -107,8 +107,8 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-slate-300 font-light leading-relaxed">
-                    Office 905 - Le Solarium Tower<br />
-                    Dubai Silicon Oasis<br />
+                    Marhaba Auctions Building, First Floor<br />
+                    Umm Al Ramoul<br />
                     Dubai, UAE
                   </p>
                 </CardContent>
@@ -333,7 +333,7 @@ const Contact = () => {
                   Find Us on the Map
                 </CardTitle>
                 <CardDescription className="text-slate-400 font-light">
-                  Visit our office at Dubai Silicon Oasis
+                  Visit our office at Umm Al Ramoul 
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-0">
