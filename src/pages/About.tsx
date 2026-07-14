@@ -223,13 +223,13 @@ const About = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:00971-58-549-4002"
+                href="tel:00971-58-668-8908"
                 className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-amber-200 to-amber-100 hover:from-amber-100 hover:to-amber-200 text-slate-900 rounded-2xl font-semibold shadow-[0_4px_16px_rgba(251,191,36,0.3)] hover:shadow-[0_6px_24px_rgba(251,191,36,0.4)] transition-all duration-300 hover:scale-105"
               >
                 Call Us Now
               </a>
               <a
-                href="mailto:info@selenahomes.com"
+                href="mailto:info@selenahomes.ae"
                 className="inline-flex items-center justify-center px-8 py-4 bg-slate-800/60 hover:bg-slate-800/80 text-amber-100 border border-amber-200/30 rounded-2xl font-semibold shadow-[0_4px_16px_rgba(251,191,36,0.2)] hover:shadow-[0_6px_24px_rgba(251,191,36,0.3)] transition-all duration-300 hover:scale-105"
               >
                 Email Us
@@ -256,16 +256,16 @@ const About = () => {
             </div>
             <div className="mb-6">
               <p className="text-slate-400 mb-2 font-light">
-                Office 905 - Le Solarium Tower, Dubai Silicon Oasis
+                Marhaba Auctions Building, First Floor, Marrakech St, Umm Al Ramoul
               </p>
               <p className="text-slate-400 mb-2 font-light">
-                <a href="mailto:info@selenahomes.com" className="hover:text-amber-200 transition-colors">
-                  info@selenahomes.com
+                <a href="mailto:info@selenahomes.ae" className="hover:text-amber-200 transition-colors">
+                  info@selenahomes.ae
                 </a>
               </p>
               <p className="text-slate-400 font-light">
-                <a href="tel:00971585494002" className="hover:text-amber-200 transition-colors">
-                  +971-58-549-4002
+                <a href="tel:00971586688908" className="hover:text-amber-200 transition-colors">
+                  +971-58-668-8908
                 </a>
               </p>
             </div>
@@ -279,7 +279,7 @@ const About = () => {
               </div>
               <div className="flex justify-center items-center gap-4">
                 <a
-                  href="https://www.linkedin.com/company/selena-homes"
+                  href="https://www.linkedin.com/in/serineachouri/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative w-12 h-12 bg-slate-800/60 backdrop-blur-sm border border-amber-200/20 rounded-xl flex items-center justify-center hover:bg-amber-200/10 hover:border-amber-200/40 transition-all duration-300 hover:scale-110 shadow-[0_2px_8px_rgba(251,191,36,0.1)] hover:shadow-[0_4px_16px_rgba(251,191,36,0.2)]"
@@ -287,7 +287,7 @@ const About = () => {
                   <Linkedin className="w-5 h-5 text-amber-200 group-hover:text-amber-100 transition-colors" />
                 </a>
                 <a
-                  href="https://twitter.com/selena_hom55936"
+                  href="https://x.com/serina_achouri"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative w-12 h-12 bg-slate-800/60 backdrop-blur-sm border border-amber-200/20 rounded-xl flex items-center justify-center hover:bg-amber-200/10 hover:border-amber-200/40 transition-all duration-300 hover:scale-110 shadow-[0_2px_8px_rgba(251,191,36,0.1)] hover:shadow-[0_4px_16px_rgba(251,191,36,0.2)]"
@@ -295,7 +295,7 @@ const About = () => {
                   <FaXTwitter className="w-5 h-5 text-amber-200 group-hover:text-amber-100 transition-colors" />
                 </a>
                 <a
-                  href="https://www.instagram.com/selenahomesdubai/"
+                  href="https://www.instagram.com/selena.homesdxb/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative w-12 h-12 bg-slate-800/60 backdrop-blur-sm border border-amber-200/20 rounded-xl flex items-center justify-center hover:bg-amber-200/10 hover:border-amber-200/40 transition-all duration-300 hover:scale-110 shadow-[0_2px_8px_rgba(251,191,36,0.1)] hover:shadow-[0_4px_16px_rgba(251,191,36,0.2)]"
@@ -311,7 +311,7 @@ const About = () => {
                   <Facebook className="w-5 h-5 text-amber-200 group-hover:text-amber-100 transition-colors" />
                 </a>
                 <a
-                  href="https://www.tiktok.com/@selenahomess"
+                  href="https://www.tiktok.com/@selena.homes5"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative w-12 h-12 bg-slate-800/60 backdrop-blur-sm border border-amber-200/20 rounded-xl flex items-center justify-center hover:bg-amber-200/10 hover:border-amber-200/40 transition-all duration-300 hover:scale-110 shadow-[0_2px_8px_rgba(251,191,36,0.1)] hover:shadow-[0_4px_16px_rgba(251,191,36,0.2)]"
@@ -319,7 +319,7 @@ const About = () => {
                   <FaTiktok className="w-5 h-5 text-amber-200 group-hover:text-amber-100 transition-colors" />
                 </a>
                 <a
-                  href="https://www.youtube.com/"
+                  href="https://www.youtube.com/@SelenaHomes-b7e@SelenaHomes-b7e@SelenaHomes-b7e"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative w-12 h-12 bg-slate-800/60 backdrop-blur-sm border border-amber-200/20 rounded-xl flex items-center justify-center hover:bg-amber-200/10 hover:border-amber-200/40 transition-all duration-300 hover:scale-110 shadow-[0_2px_8px_rgba(251,191,36,0.1)] hover:shadow-[0_4px_16px_rgba(251,191,36,0.2)]"
