@@ -45,7 +45,7 @@ const MobileNav = () => {
 
           {/* Call Button */}
           <a
-            href="tel:+971585494002"
+            href=""
             className="p-2 bg-gradient-to-r from-amber-200/10 to-amber-100/10 backdrop-blur-sm border border-amber-200/30 rounded-xl shadow-[0_2px_8px_rgba(251,191,36,0.2)] hover:from-amber-200/20 hover:to-amber-100/20 transition-all duration-300 active:scale-95"
             aria-label="Call us"
           >
@@ -127,7 +127,7 @@ const MobileNav = () => {
 
           {/* CTA Button */}
           <div className="pb-6 sm:pb-8">
-            <a href="tel:+971585494002">
+            <a href="">
               <Button
                 className="w-full bg-gradient-to-r from-amber-200 to-amber-100 hover:from-amber-100 hover:to-amber-200 text-slate-900 rounded-xl px-4 sm:px-6 py-5 sm:py-6 font-semibold text-sm sm:text-base shadow-[0_4px_16px_rgba(251,191,36,0.3)] hover:shadow-[0_6px_24px_rgba(251,191,36,0.4)] transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 group"
                 onClick={toggleMenu}
@@ -141,10 +141,10 @@ const MobileNav = () => {
             <div className="mt-4 sm:mt-6 text-center">
               <p className="text-slate-400 text-xs sm:text-sm mb-1 font-light">Need help?</p>
               <a 
-                href="tel:+971585494002" 
+                href="" 
                 className="text-amber-200 text-sm sm:text-base font-semibold hover:text-amber-100 transition-colors"
               >
-                +971-58-549-4002
+                +971-58-668-8908
               </a>
             </div>
           </div>
