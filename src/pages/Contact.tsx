@@ -368,7 +368,7 @@ const Contact = () => {
             </div>
             <div className="mb-6">
               <p className="text-slate-400 mb-2 font-light">
-                MArhaba Auctions Building, First Floor, Marrakech St, Umm Al Ramoul
+                Marhaba Auctions Building, First Floor, Marrakech St, Umm Al Ramoul
               </p>
               <p className="text-slate-400 mb-2 font-light">
                 <a href="mailto:info@selenahomes.ae" className="hover:text-amber-200 transition-colors">
