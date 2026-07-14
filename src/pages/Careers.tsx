@@ -214,16 +214,16 @@ const CareersPage = () => {
             </div>
             <div className="mb-6">
               <p className="text-slate-400 mb-2 font-light">
-                Office 905 - Le Solarium Tower, Dubai Silicon Oasis
+                Marhaba Auctions Building, First Floor, Marrakech St, Umm Al Ramoul
               </p>
               <p className="text-slate-400 mb-2 font-light">
-                <a href="mailto:info@selenahomes.com" className="hover:text-amber-200 transition-colors">
-                  info@selenahomes.com
+                <a href="mailto:info@selenahomes.ae" className="hover:text-amber-200 transition-colors">
+                  info@selenahomes.ae
                 </a>
               </p>
               <p className="text-slate-400 font-light">
-                <a href="tel:00971585494002" className="hover:text-amber-200 transition-colors">
-                  +971-58-549-4002
+                <a href="tel:00971586688908" className="hover:text-amber-200 transition-colors">
+                  +971-58-668-8908
                 </a>
               </p>
             </div>
